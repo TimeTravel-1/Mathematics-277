@@ -1,0 +1,129 @@
+\contentsline {section}{\numberline {1}January 11, 2016}{6}{section.1}
+\contentsline {subsection}{\numberline {1.1}Vector Notation}{6}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Vector Arithmetic}{6}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Geometric Interpretation of Vectors}{6}{subsection.1.3}
+\contentsline {section}{\numberline {2}January 13, 2016}{7}{section.2}
+\contentsline {subsection}{\numberline {2.1}Interpretation of Vectors}{7}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Normal Vector}{7}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Properties of the Unit Vector}{7}{subsection.2.3}
+\contentsline {section}{\numberline {3}January 15, 2016}{8}{section.3}
+\contentsline {subsection}{\numberline {3.1}Vector Operations}{8}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Vector Function}{9}{subsection.3.2}
+\contentsline {section}{\numberline {4}January 18, 2016}{9}{section.4}
+\contentsline {subsection}{\numberline {4.1}Vector Function}{9}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Properties}{10}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Summary}{11}{subsection.4.3}
+\contentsline {section}{\numberline {5}January 20, 2016}{11}{section.5}
+\contentsline {subsection}{\numberline {5.1}Solution to Vector Problems}{11}{subsection.5.1}
+\contentsline {section}{\numberline {6}January 22, 2016}{13}{section.6}
+\contentsline {subsection}{\numberline {6.1}Additional Exercises}{13}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Special Parametric Curves in Two and Three Space}{14}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Standard Parametric Curves in $\mathbb R^2$}{15}{subsection.6.3}
+\contentsline {section}{\numberline {7}January 25, 2016}{15}{section.7}
+\contentsline {subsection}{\numberline {7.1}Standard Parametric Curves in $\mathbb R^2$ Cont'd}{15}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Standard Parametric Curves in $\mathbb R^3$}{16}{subsection.7.2}
+\contentsline {section}{\numberline {8}January 27, 2016}{17}{section.8}
+\contentsline {subsection}{\numberline {8.1}Additional Exercises}{17}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Motion Involving a Varying Mass}{18}{subsection.8.2}
+\contentsline {section}{\numberline {9}January 29, 2016}{19}{section.9}
+\contentsline {subsection}{\numberline {9.1}Motion Involving Varying Mass Cont'd}{19}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Summary}{20}{subsection.9.2}
+\contentsline {section}{\numberline {10}February 1, 2016}{20}{section.10}
+\contentsline {subsection}{\numberline {10.1}Derivative Rules for Vector Functions}{20}{subsection.10.1}
+\contentsline {section}{\numberline {11}February 3, 2016}{22}{section.11}
+\contentsline {subsection}{\numberline {11.1}Alternative Formulas}{22}{subsection.11.1}
+\contentsline {subsection}{\numberline {11.2}Tangential and Normal Components of Acceleration}{23}{subsection.11.2}
+\contentsline {section}{\numberline {12}February 5, 2016}{24}{section.12}
+\contentsline {subsection}{\numberline {12.1} Summary}{24}{subsection.12.1}
+\contentsline {section}{\numberline {13}February 8, 2016}{26}{section.13}
+\contentsline {subsection}{\numberline {13.1}Functions of Two and Three Variables}{26}{subsection.13.1}
+\contentsline {subsection}{\numberline {13.2}Summary of Standard Plane Curves}{27}{subsection.13.2}
+\contentsline {section}{\numberline {14}February 10, 2016}{27}{section.14}
+\contentsline {subsection}{\numberline {14.1}Summary of Standard Plane Curves Examples}{27}{subsection.14.1}
+\contentsline {section}{\numberline {15}February 12, 2016}{28}{section.15}
+\contentsline {subsection}{\numberline {15.1}Continued Examples}{28}{subsection.15.1}
+\contentsline {subsection}{\numberline {15.2}Quadric Surfaces}{29}{subsection.15.2}
+\contentsline {section}{\numberline {16}February 22, 2016}{30}{section.16}
+\contentsline {subsection}{\numberline {16.1}Quadric Surfaces Cont'd}{30}{subsection.16.1}
+\contentsline {subsection}{\numberline {16.2}Two Special Surfaces}{30}{subsection.16.2}
+\contentsline {section}{\numberline {17}February 24, 2016}{32}{section.17}
+\contentsline {subsection}{\numberline {17.1}Partial Derivatives of a Function of Several Variables}{32}{subsection.17.1}
+\contentsline {subsection}{\numberline {17.2}Other Notations for Partial Derivatives}{32}{subsection.17.2}
+\contentsline {section}{\numberline {18}February 26, 2016}{32}{section.18}
+\contentsline {subsection}{\numberline {18.1}Partial Derivatives Cont'd}{32}{subsection.18.1}
+\contentsline {subsection}{\numberline {18.2}Higher Order Partial Derivatives}{33}{subsection.18.2}
+\contentsline {subsection}{\numberline {18.3}Other Notations for Second Order Partials}{33}{subsection.18.3}
+\contentsline {section}{\numberline {19}February 29, 2016}{35}{section.19}
+\contentsline {subsection}{\numberline {19.1}Chain Rule}{35}{subsection.19.1}
+\contentsline {subsection}{\numberline {19.2}Other Versions of Chain Rule}{35}{subsection.19.2}
+\contentsline {subsection}{\numberline {19.3}Tree Diagram}{36}{subsection.19.3}
+\contentsline {section}{\numberline {20}March 2, 2016}{36}{section.20}
+\contentsline {subsection}{\numberline {20.1}Tree Diagram Examples}{36}{subsection.20.1}
+\contentsline {section}{\numberline {21}March 4, 2016}{38}{section.21}
+\contentsline {subsection}{\numberline {21.1}Gradient}{38}{subsection.21.1}
+\contentsline {subsection}{\numberline {21.2}Equation of a Plane}{38}{subsection.21.2}
+\contentsline {subsection}{\numberline {21.3}Linearization of a Function of Two or Three Variables}{39}{subsection.21.3}
+\contentsline {section}{\numberline {22}March 7, 2016}{40}{section.22}
+\contentsline {subsection}{\numberline {22.1}Linearization Examples}{40}{subsection.22.1}
+\contentsline {subsection}{\numberline {22.2}Differentials and Increments}{40}{subsection.22.2}
+\contentsline {section}{\numberline {23}March 9, 2016}{42}{section.23}
+\contentsline {subsection}{\numberline {23.1}Example Cont'd}{42}{subsection.23.1}
+\contentsline {subsection}{\numberline {23.2}Directional Derivatives}{42}{subsection.23.2}
+\contentsline {subsection}{\numberline {23.3}Maximum and Minimum Values of the Directional Derivative}{43}{subsection.23.3}
+\contentsline {section}{\numberline {24}March 11, 2016}{44}{section.24}
+\contentsline {subsection}{\numberline {24.1}Examples Cont'd}{44}{subsection.24.1}
+\contentsline {subsection}{\numberline {24.2}Jacobian Determinant}{45}{subsection.24.2}
+\contentsline {section}{\numberline {25}March 14, 2016}{46}{section.25}
+\contentsline {subsection}{\numberline {25.1}Implicit Differentiation Notation}{46}{subsection.25.1}
+\contentsline {subsection}{\numberline {25.2}Implicit Differentiation Formula}{47}{subsection.25.2}
+\contentsline {subsection}{\numberline {25.3}Implicit Formula for a System of Two Equations}{48}{subsection.25.3}
+\contentsline {section}{\numberline {26}March 16, 2016}{49}{section.26}
+\contentsline {subsection}{\numberline {26.1}Implicit Differentiation Examples}{49}{subsection.26.1}
+\contentsline {subsection}{\numberline {26.2}Double and Triple integrals}{51}{subsection.26.2}
+\contentsline {section}{\numberline {27}March 18, 2016}{51}{section.27}
+\contentsline {subsection}{\numberline {27.1}Types of Regions in a Plane}{51}{subsection.27.1}
+\contentsline {subsection}{\numberline {27.2}Types of Regions in $\mathbb R^3$}{52}{subsection.27.2}
+\contentsline {section}{\numberline {28}March 21, 2016}{53}{section.28}
+\contentsline {subsection}{\numberline {28.1}Definite Partial Integrasl}{53}{subsection.28.1}
+\contentsline {subsection}{\numberline {28.2}Setting Up Limits for a Double Integral}{54}{subsection.28.2}
+\contentsline {subsection}{\numberline {28.3}Setting Up Limits for a Triple Integral}{54}{subsection.28.3}
+\contentsline {subsection}{\numberline {28.4}Geometric Interpretation of a Double Integral}{55}{subsection.28.4}
+\contentsline {section}{\numberline {29}March 23, 2016}{55}{section.29}
+\contentsline {subsection}{\numberline {29.1}Geometric Interpretation of a Triple Integral}{55}{subsection.29.1}
+\contentsline {section}{\numberline {30}March 28, 2016}{58}{section.30}
+\contentsline {subsection}{\numberline {30.1}Examples Cont'd}{58}{subsection.30.1}
+\contentsline {section}{\numberline {31}March 30, 2016}{60}{section.31}
+\contentsline {subsection}{\numberline {31.1}Polar, Cylindrical and Spherical Coordinates}{60}{subsection.31.1}
+\contentsline {subsection}{\numberline {31.2}Element of Area in Polar Coordinates}{60}{subsection.31.2}
+\contentsline {subsection}{\numberline {31.3}Summary of Polar Coordinates}{61}{subsection.31.3}
+\contentsline {subsection}{\numberline {31.4}Double Integrals in Polar Coordinates}{61}{subsection.31.4}
+\contentsline {subsection}{\numberline {31.5}Cylindrical Coordinates}{61}{subsection.31.5}
+\contentsline {subsection}{\numberline {31.6}Summary of Cylindrical Coordinates}{62}{subsection.31.6}
+\contentsline {subsection}{\numberline {31.7}Computing a Triple Integral in Cylindrical Coordinates}{62}{subsection.31.7}
+\contentsline {section}{\numberline {32}April 1, 2016}{62}{section.32}
+\contentsline {subsection}{\numberline {32.1}Spherical Coordinates}{62}{subsection.32.1}
+\contentsline {subsection}{\numberline {32.2}Other Useful Relations}{62}{subsection.32.2}
+\contentsline {subsection}{\numberline {32.3}Ranges for $\rho , \phi , \theta $}{63}{subsection.32.3}
+\contentsline {subsection}{\numberline {32.4}Summary of Spherical Coordinates}{63}{subsection.32.4}
+\contentsline {subsection}{\numberline {32.5}Two Special Equations in Spherical Coordinates}{63}{subsection.32.5}
+\contentsline {subsection}{\numberline {32.6}Element of Volume in Spherical Coordinates}{64}{subsection.32.6}
+\contentsline {section}{\numberline {33}April 4, 2016}{65}{section.33}
+\contentsline {subsection}{\numberline {33.1}Examples Cont'd}{65}{subsection.33.1}
+\contentsline {section}{\numberline {34}April 6, 2016}{69}{section.34}
+\contentsline {subsection}{\numberline {34.1}Applications of Double and Triple Integrals}{69}{subsection.34.1}
+\contentsline {section}{\numberline {35}April 8, 2016}{72}{section.35}
+\contentsline {subsection}{\numberline {35.1}Application Examples}{72}{subsection.35.1}
+\contentsline {section}{\numberline {36}April 11, 2016}{75}{section.36}
+\contentsline {subsection}{\numberline {36.1}Examples Cont'd}{75}{subsection.36.1}
+\contentsline {subsection}{\numberline {36.2}Critical Points of Functions of Two Independent Variables}{76}{subsection.36.2}
+\contentsline {section}{\numberline {37}April 13, 2016}{77}{section.37}
+\contentsline {subsection}{\numberline {37.1}Classifying Critical Points}{77}{subsection.37.1}
+\contentsline {subsection}{\numberline {37.2}Second Derivative Test}{77}{subsection.37.2}
+\contentsline {subsection}{\numberline {37.3}Extreme Values of a Function of Two Independent Variables Over a Closed Region}{78}{subsection.37.3}
+\contentsline {section}{\numberline {38}Paragraph}{79}{section.38}
+\contentsline {section}{\numberline {39}Math}{79}{section.39}
+\contentsline {subsection}{\numberline {39.1}Using alignment}{80}{subsection.39.1}
+\contentsline {section}{\numberline {40}Shortcuts}{80}{section.40}
+\contentsline {section}{\numberline {41}Theorems and Proofs}{80}{section.41}
+\contentsline {section}{\numberline {42}Referencing}{81}{section.42}
+\contentsline {section}{\numberline {43}Numbered and Bulleted Lists}{81}{section.43}

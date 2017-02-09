@@ -1,0 +1,2934 @@
+\documentclass[11pt]{article}
+
+%%%%%%%%%%%%%% LATEX SAMPLE FILE %%%%%%%%%%%%%%%%
+% A line which starts with a % sign
+% is called a COMMENT. It is IGNORED
+% by the LaTeX processor.
+
+% Include math
+\usepackage{amsmath,amsthm,amssymb}
+% Include links
+\usepackage{hyperref}
+
+
+%%%%%%%%%%%%%  THEOREMS  %%%%%%%%%%%%%%%%%
+% Let's define some theorem environments
+% To use later in the paper
+\theoremstyle{plain} % other options: definition, remark
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+% By including [theorem], the lemma follows the numbering of theorem
+% e.g. Thm 1, Lemma 2, Thm 3, Thm 4, \dots
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition} % the star prevents numbering
+
+\theoremstyle{example}
+\newtheorem*{example}{Example}
+% Remarks
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+
+
+
+%%%%%%%%%%%%%%  PAGE SETUP %%%%%%%%%%%%%%%%%
+% LaTeX has big default margins
+% The following sets them to 1in
+\usepackage[margin=1.5in]{geometry}
+
+% The following sets up some headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Multivariable Calculus} % Left Header
+\rhead{\thepage} % Right Header
+\cfoot{} % Center Foot (empty)
+
+
+
+
+
+
+%%%%%%%%%%%%% SHORTCUTS %%%%%%%%%%%%%%%%%%%%
+% You can define your own shortcuts too.
+% Examples of custom commands
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\cbrt}[1]{\sqrt[3]{#1}}
+
+\begin{document}
+
+% Set up a title
+\title{Math 277}
+\author{David Ng}
+\date{Winter 2016}
+\maketitle
+
+% This line makes a ToC
+\tableofcontents
+
+% This line starts a new page
+\eject
+
+%%%%%%%%%%%%% January 11 %%%%%%%%%%%%%%%%%%%%
+
+\section{January 11, 2016}
+
+\subsection{Vector Notation}
+
+Let $P$ be a point in $\mathbb R^3$.
+\begin {definition}
+
+A directed line from the origin to $P$ is a \textbf{position vector}, and may be denoted by $\overrightarrow{OP}$, or as a single letter $\vec{u}$. 
+\end{definition} 
+
+
+The origin $O$ is referred to as the initial point, and the point $P$ as the terminal point of $\vec{u}$. Vector $\vec{u}$ is represented by the terminal point $P$, and is written as $\vec{u} = (x, y, z)$.
+\bigskip
+\begin{remark}
+
+Given an ordered tuple $(x, y, z)$ in $\mathbb R^3$, we represent the point as the set of coordinates, and represent the position vector by its components. Whereas the $x, y, z$ coordinates indicate a point, the $x, y, z$ components indicate a directed line from the origin to those coordinates. 
+\end{remark}
+
+\begin{definition}
+A \textbf{zero vector} is the vector with all components equal to 0. Ie: $\overrightarrow{0} = (0,0,0\dots)$.
+\end{definition}
+When each component of a vector corresponds to the components of another vector, then these two vectors are equal. 
+
+\subsection{Vector Arithmetic}
+
+\begin{enumerate}
+	\item The sum of vectors is the sum of the individual corresponding components. 
+	\item The difference of vectors is the difference between the components of the first vector with the components of the second vector.
+	\item Scalar multiplication is the multiplication of each component of a vector with a scalar real number $k$. 
+\end{enumerate}
+
+\begin{remark}
+We write multiplication by a scalar as $k\vec{u}$. $\vec{u}\vec{v}$ and $\frac{\vec{u}}{\vec{v}}$ do not exist (There is no ordinary piecewise multiplication and division between vectors. 
+\end{remark}
+
+\subsection{Geometric Interpretation of Vectors}
+
+\begin{itemize}
+	\item Addition: Place all vectors from head to tail. The sum is the resultant vector.
+	\item Scalar Multiplication: Place $k$ number of the vectors from head to tail. 
+\end{itemize}
+	
+	
+\section{January 13, 2016}
+
+\subsection{Interpretation of Vectors}
+Let $\vec{u}$ be a non-zero vector and $k$ be a non-zero scalar. $k\vec{u}$ is a vector parallel to $\vec{u}$. If $k >0$, then the resultant vector is in the same direction. If $k<0$, then the resultant vector is in the opposite direction. 
+
+\begin{definition}
+Let $P$ and $Q$ be points $(x, y, z)$ and $(x', y', z')$ respectively. The directed line from $P$ to $Q$ is a \textbf{general vector} and denoted by $\overrightarrow{PQ}$ or $\vec{u}$.\\
+\end{definition}
+
+We note that, 
+$$\overrightarrow{OQ} = \overrightarrow{OP}  + \overrightarrow{PQ} $$
+
+
+rearranging, we get:
+
+$$\overrightarrow{PQ} = \overrightarrow{OQ}  - \overrightarrow{OP} $$
+
+\subsection{Normal Vector}
+
+\begin{definition}
+Let $\vec{u}$ be the vector $(x, y, z)$ in  $\mathbb R^3$. The norm (or magnitude) of $\vec{u}$ is denoted and defined by: $$\|\vec{u}\|= \sqrt{x^2+y^2+z^2}$$
+\end{definition}
+Geometrically, this indicates the length of the vector.
+\begin{remark} It can be noted that $\|\vec{u}\| \in \mathbb R$, and $\|\vec{u}\| \geq0$ (with $\|\vec{u}\| = 0$ when $\vec{u}$ is $\overrightarrow{0}$). It can also be found that for any scalar $k$, $\|k\vec{u}\| = |k|\|\vec{u}\|$.
+\end{remark}
+\bigskip
+
+Ie: Let $\vec{u}$ = $(4, -2, 4)$. Find $\|\vec{u}\|$. $\|\vec{u}\| = 6$
+
+\begin{definition}
+A \textbf{unit vector} is a vector with a magnitude of length 1. It may be denoted by $\vec{n}$ to distinguish from other vectors. Since it has a magnitude of 1, then $\|\vec{n}\| = 1$.
+\end{definition}
+\bigskip
+Ie: Show whether or not $\left(-\frac{2}{3}, \frac{1}{3}, -\frac{2}{3}\right)$ is a unit vector. This is a unit vector, since the magnitude is 1. 
+
+\subsection{Properties of the Unit Vector}
+
+Given a non-zero vector $\vec{u}$, we note the following properties:
+
+\begin{enumerate}
+	\item $\vec{n_1} = \frac{\vec{u}}{\|\vec{u}\|}$, where $\vec{n_1}$ is the unit vector in the direction of $\vec{u}$.
+	\item $\vec{n_2} = -\frac{\vec{u}}{\|\vec{u}\|}$, where $\vec{n_2}$ is the unit vector in the opposite direction of $\vec{u}$.
+\end{enumerate}	
+
+Ie: Let $\vec{a}$ be the vector $(4, 0, -3)$. Then the unit vector in the opposite direction of $\vec{a}$ is $(-\frac{4}{5}, 0, \frac{3}{5})$. 
+
+\begin{definition}
+The \textbf{standard unit vectors} are denoted and defined by $\vec{i} = (1, 0, 0)$, $\vec{j} = (0,1, 0)$ and $\vec{k} = (0,0,1)$. Note that we can write the vector $\vec{u} = (x, y, z)$ as $x\vec{i} + y\vec{j} + z\vec{k} $ since $\vec{u} = x(1, 0, 0) + y(0,1,0)+z(0,0,1)$.
+\end{definition}
+
+For instance, the vector $(2, -3, 5)$ is the same as the vector expressed as $2\vec{i} -3\vec{j} +5 \vec{k}$. Likewise, the vector $2\vec{i} -7\vec{k}$ is the same as $(2, 0, -7)$.
+
+\section{January 15, 2016}
+\subsection{Vector Operations}
+
+\begin{definition}
+Let $\vec{u} = (x_1, y_1, z_1)$ and $\vec{v} = (x_2, y_2, z_2)$. The \textbf{dot product}, denoted and defined by $\vec{u} \cdot \vec{v}$, is the real scalar given by summing the product of corresponding components of the two vectors, and is equal to $x_1x_2 + y_1y_2 + z_1z_2$.
+\end{definition}
+
+The following are properties related to the dot product:
+
+\begin{enumerate}
+	\item *$\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}$
+	\item *$\vec{u} \cdot \vec{u} = \|\vec{u}\|^2$
+	\item *$\left(\vec{u}+\vec{v} \right) \cdot \vec{w} = \vec{u} \cdot \vec{w} +\vec{v} \cdot \vec{w} = \vec{w} \cdot \left(\vec{u}+\vec{v} \right) $
+	\item $(k\vec{u}) \cdot \vec{v} = k(\vec{u} \cdot \vec{v}) = \vec{u} \cdot (k\vec{v})$
+
+\end{enumerate}
+
+*Note that the starred properties are the same for real numbers. 
+
+
+\begin{remark}
+Let $\vec{u}$ and $\vec{v}$ be non-zero vectors, and let $\theta$ be the angle between $\vec{u}$ and $\vec{v}$. It can be shown that $$\cos\theta = \frac{\vec{u}\cdot\vec{v}}{\|\vec{u}\|\|\vec{v}\|}$$  
+\end{remark}
+
+
+
+\begin{enumerate}
+	\item If $\theta = 0$, then $\vec{u}$ and $\vec{v}$ are parallel and in the same direction.
+	\item If $\theta = \pi$, then $\vec{u}$ and $\vec{v}$ are parallel and in the opposite direction.
+	\item If $\theta =\frac{ \pi}{2}$, then $\vec{u}$ and $\vec{v}$ are \textbf{orthogonal} (perpendicular).
+\end{enumerate}
+
+\begin{remark}
+Two vectors are perpendicular if and only if $\vec{u} \cdot \vec{v} = 0$.
+\end{remark}
+
+\begin{definition}
+Let $\vec{u} $ and $\vec{v} $ be vectors, specifically in $\mathbb R^3$. The \textbf{cross product} of the two vectors is denoted by $\vec{u}\times\vec{v}$, and defined as $$\vec{u}\times\vec{v} = \left(+\begin{vmatrix}
+  	y_{1} & z_{1}\\
+  	y_{2} & z_{2}\\
+  	\end{vmatrix}, -\begin{vmatrix}
+  	x_{1} & z_{1}\\
+  	x_{2} & z_{2}\\
+  	\end{vmatrix},+ \begin{vmatrix}
+  	x_{1} & y_{1}\\
+  	x_{2} & y_{2}\\
+  	\end{vmatrix}\right)$$
+\end{definition}
+
+\begin{remark}
+Note that this does not need to be memorized, as it simply derives from the determinant of the two vectors.
+\end{remark}
+
+\begin{enumerate}
+	\item $\vec{u} \times \vec{v} = -(\vec{v}\times\vec{u})$
+	\item $(\vec{u}+\vec{v})\times \vec{w} = \vec{u}\times\vec{w} + \vec{v}\times\vec{w}$
+	\item $ \vec{w}\times(\vec{u}+\vec{v}) = \vec{w}\times\vec{u} + \vec{w}\times\vec{v}$
+	\item $(k\vec{u})\times\vec{v} = k(\vec{u}\times\vec{v}) = \vec{u}\times(k\vec{v})$
+	\item $\vec{u} \times (\vec{v}\times\vec{w}) + \vec{v} \times (\vec{w}\times\vec{u}) + \vec{w} \times (\vec{u}\times\vec{v}) = 0$
+	
+\end{enumerate}
+
+\begin{remark}
+let $\vec{u}$ and $\vec{v}$ be non-zero vectors in $\mathbb R^3$. The cross product of $\vec{u}$ and $\vec{v}$ is the vector $\vec{w}$ which is orthogonal to both $\vec{u}$ and $\vec{v}$.
+\end{remark}
+
+Ie: Find the vector that is orthogonal to the vectors $(4, 2, -9)$ and $(0,2,3)$. Recall that a vector orthogonal to $\vec{u}$ and $\vec{v}$ is the cross product of both vectors. The result is $(24, -12,8 )$. Note that the dot product of this vector with $\vec{u}$ or $\vec{v}$ is 0 (This can be used to check for accuracy).
+
+
+
+\subsection{Vector Function}
+
+\begin{definition}
+A vector function of a single variable, $\vec{v}$ is a rule that assigns to each permissible real number $t$ one and only one ordered tuple, which we write as 
+\begin{align*}
+	\vec{v}(t) &= ((x(t),(y(t),(z(t)) \\
+	&= x(t)\vec{i}+y(t)\vec{j}+z(t)\vec{k} 
+\end{align*}
+\end{definition}
+
+Let $\vec{v} =  x(t)\vec{i}+y(t)\vec{j}+z(t)\vec{k}$, $t \in I$. Assuming that $x(t)$, $y(t)$, and $z(t)$ are continuous for all $t$ in the interval $I$, then geometrically, $\vec{v}(t)$ is the position of a moving object at time $t$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{January 18, 2016}
+\subsection{Vector Function}
+
+Given the vector function $\vec{r}(t)  = x(t)\vec{i} + y(t)\vec{j} + z(t)\vec{k}$, and assuming that the function is continuous, then $\vec{r}(t)$ may be thought of as the position of a particle $P$ moving in three space at time $t$.
+
+Note that as time $t$ varies, the terminal point $P$ traces a curve $C$, which is the path of the particle. Curve $C$ is said to be given parametrically by the vector function $\vec{r}(t)$, where $t \in \mathbb R$. Conversely, $C$ is given parametrically by three scalar equations:
+
+
+\[ C = \begin{cases}
+    x = x (t)     & \quad \\
+    y = y(t)  & \quad t \in \mathbb R\\
+    z = z(t) & \quad
+  \end{cases}
+\]
+
+
+
+\bigskip
+\begin{definition}
+Let $C$ be a space curve given by $\vec{r}(t)$, where $t \in [a, b]$. Define the initial and terminal points of curve $C$ respectively by $P = \vec{r}(a)$, and $Q = \vec{r}(b)$. The \textbf{orientation} of $C$ is the direction from $P$ to $Q$, indicated by 1 or 2 arrowheads.
+\end{definition}
+
+\subsection{Properties}
+
+\begin{enumerate}
+	\item Position: By definition, position is the vector function $\vec{r}(t)$. 
+	\item Velocity: Denoted by $\vec{v}(t)$. By definition, average velocity is $\frac{\vec{d}}{t}$. \\
+	
+	
+		
+	Let $P$ and $Q$ denote the position of an object at time $t$ and $t + \Delta t$ respectively. Then, $\text{average } \vec{v} = \frac{\vec{r}(t + \Delta t) - \vec{r}(t)}{\Delta t}$. We note that $\overrightarrow{OP}  + \overrightarrow{PQ} = \overrightarrow{OQ}$ implies that $\vec{r}(t) + \overrightarrow{PQ} = \vec{r}(t + \Delta t)$. Rearranging this gives $\overrightarrow{PQ} = \vec{r}(t + \Delta t) - \vec{r}(t)$.\\
+	
+	
+ Instantaneous velocity is found when $\Delta t$ approaches 0. So, $\vec{v}(t) = \lim_{\Delta t  \to 0} \frac{\vec{r}(t + \Delta t) - \vec{r}(t)}{\Delta t}$, which is $\frac{\mathrm d \vec{r}}{\mathrm d t}$. Thus, velocity can be found by taking the derivative of position.
+ 
+ \begin{remark}
+ As $\Delta t$ approaches 0, point $Q$ approaches $P$, so $\overrightarrow{PQ}$ approaches the tangent line of curve $C$ at $P$. In other words, the velocity vector $\vec{v}(t)$ is tangent to curve $C$ at point $P$.
+ \end{remark}
+ 
+ 	\item Speed: $v$ or $\|\vec{v}\|$ is the magnitude of the vector.
+ 	\item Acceleration: By definition, acceleration is the rate of change of velocity, so $\vec{a}(t) = \frac{\mathrm d \vec{v}}{\mathrm d t}$.
+	\item Distance (or Arc Length): Distance is denoted by $L$. Let $P$ and $Q$ be positions of objects moving along a space curve at time $t=a$ and $t=b$ respectively. To determine the distance from $P$ to $Q$, consider that speed is equal to the rate of change in distance. 
+	
+\begin{align*}
+	\|\vec{v}\| &= \frac{\mathrm d L}{\mathrm d t}\\
+	\mathrm d L &= \|\vec{v}\| \mathrm d t\\
+	L &= \int\limits_{t=a}^{t=b}\|\vec{v}\| \mathrm d t\\
+	&= \int\limits_{a}^{b}(speed)(time)
+\end{align*}
+	
+\end{enumerate}
+
+\begin{remark}
+Note that $\vec{v} = \frac{\mathrm d \vec{r}}{\mathrm d t} = \frac{\mathrm d}{\mathrm d t} \left(x(t)\vec{i} + y(t)\vec{j} + z(t)\vec{k}\right) = \frac{\mathrm d x}{\mathrm d t} \vec{i} +  \frac{\mathrm d y}{\mathrm d t} \vec{j} + \frac{\mathrm d z}{\mathrm d t} \vec{k}$.
+\end{remark}
+
+\subsection{Summary}
+
+\begin{enumerate}
+	\item Position: $ \vec{r}(t)$
+	\item Velocity: $\vec{v}(t) =\frac{ \mathrm d \vec{r} }{\mathrm d t}$
+	\item Acceleration: $\vec{a}(t) = \frac{ \mathrm d \vec{v} }{\mathrm d t}$
+	\item Speed: $v(t) = \|\vec{v}\|$
+	\item Distance (Arc Length): $L = \int\limits_{a}^{b}\|\vec{v}\| \mathrm d t$
+	
+\end{enumerate}
+
+\begin{example}The position of a particle moving in three space is given by the vector equation $\vec{r}(t) = (1-2t)\vec{i} + \frac{1}{3}t^3\vec{j} + t^2\vec{k}$, where $t \geq 0$. Find the velocity, acceleration, and speed at time $t=3$. Find the distance from point $P = (1, 0,0)$ to the point $Q = (-5, 9, 9)$. Find the vector equation of a straight line tangent to the curve $C$ at $Q = (-5,9,9)$. 
+\end{example}
+
+\section{January 20, 2016}
+\subsection{Solution to Vector Problems}
+
+For the first question, we take the derivative of to get $\vec{v} = \left(-2, t^2, 2t\right)$, and $\vec{a} = \left(0,2t,2\right)$. Substituting $t=3$, we get $\vec{v} = \left(-2, 9,6\right)$ and $\vec{a} = \left(0,6,2\right)$. To get speed, we note $v = \sqrt{(-2)^2+(t^2)^2+(2t)^2}$, which can be reduced to $v = t^2+2$. Substituting in $t=3$, we get 11. 
+
+To solve the second question, we note that $P$ occurs at time 0, and $Q$ at time 3. Using these values for $t$, we get,
+
+\begin{align*}
+L &=  \int\limits_{0}^{3}\|\vec{v}\| \mathrm d t\\
+&=  \int\limits_{0}^{3}(t^2+2)\mathrm d t\\
+&=\left.\frac{1}{3}t^3+2t\right|_0^3\\
+&= \left(\frac{1}{3}(3)^3 + 2(3)\right) - \left(\frac{1}{3}(0)^3 + 2(0)\right)\\
+&= \left(9+6\right)-\left(0+0\right)\\
+&= 15
+\end{align*}
+
+
+For the third question, we recall that the tangent line to the curve is in the direction of the velocity $\vec{v} = (-2, t^2, 2t)$. At $t = 3$, this means that,
+
+\begin{align*}
+	\vec{r}(t) &= \vec{r_0} + s\vec{v}\\
+	&= (-5, 9, 9) + s (-2, 9, 6), \quad s \in \mathbb R
+\end{align*}
+
+\begin{example}
+
+Find the arc length of the space curve given by $\vec{r}(t) = \left(6t^2+4, 9t^4-5, 9t^6\right)$, where $0\leq t\leq1$.
+Recall that arc length is equal to distance.
+\end{example}
+To determine $\vec{v}$, we take the derivative of $\vec{r}$ to get:
+
+\begin{align*}
+	\vec{v}(t) &= \vec{r}(t)'\\
+	&= \left(\left(6t^2+4\right)',\left(9t^4-5\right)',(9t^6)'\right)\\
+	&= \left(12t, 36t^3, 54t^5\right)
+\end{align*}
+
+Let us simplify $\vec{v}$ by factoring out $6t$:
+
+\begin{align*}
+	\vec{v}(t) &= \left(12t, 36t^3, 54t^5\right)\\
+	&= 6t\left(2, 6t^2, 9t^4\right)
+\end{align*}
+
+
+
+Thus,
+\begin{align*}
+	\|\vec{v}(t)\| &= |6t|\sqrt{(2)^2+\left(6t^2\right)^2+\left(9t^4\right)^2)}\\
+	&= |6t|\sqrt{4+36t^4+81t^8}\\
+	&=|6t|\sqrt{\left(2+9t^4\right)^2}\\
+	&= |6t|\left(2+9t^4\right)\\
+	&= 12t+54t^5
+\end{align*}
+
+
+Now to determine the arc length, we use the formula given for distance, $$\int\limits_{a}^{b}\|\vec{v}(t)\| \mathrm d t$$
+
+
+Substituting into the equation, we get:
+
+
+\begin{align*}
+	\int\limits_{t=0}^{t=1}(12t + 54t^5) \mathrm d t &= \left.6t^2+9t^6\right|_0^1\\
+	&= \left(6(1)^2+9(1)^6\right) - \left(6(0)^2+9(0)^6\right)\\
+	&= (6+9) - (0 + 0)\\
+	&= 15
+\end{align*}
+
+
+Thus, the arc length is 15.
+
+
+
+
+
+
+\section{January 22, 2016}
+\subsection{Additional Exercises}
+
+\begin{example}
+The acceleration of a moving particle in three space is given by $$\vec{a}(t) = -10e^{-2t}\vec{i} + \sin(t)\vec{j} + \frac{1}{1+t}\vec{k}\quad, t\leq 0$$ Find an expression for velocity given that the initial velocity is $2\vec{i} + 3\vec{j} -7\vec{k}$.
+\end{example}
+
+
+
+Recall that $\vec{a} = \frac{\mathrm d \vec{v}}{\mathrm d t}$.
+To find velocity, we integrate acceleration. 
+
+\begin{align*}          
+\vec{v}(t) &= \int \vec{a}(t) \mathrm d t\\
+	&= \int \left(-10e^{-2t}, \sin(t), \frac{1}{1+t}\right)\mathrm d t\\
+	&= \left(5e^{-2t} + C, -\cos(t)+ C_2, \ln(1+t)+C_3\right)
+\end{align*}
+
+Now, we set $t=0$, since we are given the initial velocity. At $t=0$, $\vec{v}(0) = (5+C_1, -1+C_2, 0+C_3)$. Therefore, $C_1 = -3$, $C_2 = 4$,  and $C_3=-7$. Substituting these values back into the equation for $\vec{v}$, we get $\vec{v}(t) = \left(5e^{-2t}-3, 4-\cos (t), \ln(1+t)-7\right)$.
+
+
+\begin{example}
+The position of a moving particle in three space is given by $$\vec{r}(t) = (t-12)^2\vec{i} + \frac{4\sqrt{7}}{3}(t-12)^{\frac{3}{2}}\vec{j} + 7\sqrt{6}(t+9)\vec{k}$$ When will the speed of the particle be 21 units? 
+\end{example}
+
+First, observe that $\vec{r}(t)$ contains the quantity $(t-12)^{\frac{3}{2}} = \sqrt{(t-12)}^3$. Clearly, $\vec{r}(t)$ is defined only if $t \geq 12$. The speed $v = \|\vec{v}\|$, so now we need to determine the velocity.
+
+\begin{align*}
+\vec{v}(t) &= \frac{\mathrm d \vec{r}}{\mathrm d t} \\
+&= \frac{\mathrm d}{\mathrm d t}\left((t-12)^2,  \frac{4\sqrt{7}}{3}(t-12)^{\frac{3}{2}}, 7\sqrt{6}(t+9)\right)\\
+&= \left(2(t-12), \frac{4\sqrt{7}}{3}*\frac{3}{2}(t-12)^{\frac{1}{2}}, 7\sqrt{6}\right)\\
+&= \left(2(t-12), 2\sqrt{7}(t-12)^{\frac{1}{2}}, 7\sqrt{6}\right)
+\end{align*}
+
+Now, let $u=t-12$, so the equation becomes $\vec{v}(t) = \left(2u, 2\sqrt{7} \sqrt{u}, 7\sqrt{6}\right)$.
+
+
+Therefore, 
+
+\begin{align*}
+v &= \|\vec{v}\| \\
+&= \sqrt{(2u)^2+\left(2\sqrt{7}\sqrt{u}\right)^2+\left(7\sqrt{6}\right)^2} \\
+&= \sqrt{4u^2+28u+49(6)}\\
+\end{align*}
+
+We then equate this with 21, which is the speed given by the problem description. Now, we square both sides, and utilize the quadratic formula to determine $u = \frac{7}{2}$ and $-\frac{21}{2}$. By converting back from $u$ to $t$, we get $t = \frac{31}{2}$ and $t=\frac{3}{2}$. However, because we have restricted $t \geq 12$, we reject $\frac{3}{2}$ as a possible solution.
+
+
+\subsection{Special Parametric Curves in Two and Three Space}
+
+Let $C$ be a curve in $\mathbb R^2$ given parametrically by the vector equation $\vec{r}(t) = x(t)\vec{i} + y(t)\vec{j}$, where $t \in \mathbb R$.
+
+\begin{definition}
+By \textbf{cartesian equation} of curve $C$, we mean a direct relationship between $x$ and $y$. This relationship can be easily obtained by simply eliminating $t$ among $x(t)$ and $y(t)$. 
+\end{definition}
+
+\begin{example}
+Let $C$ be the parametric curve given by $\vec{r}(t) = (t-1)\vec{i} + (t^2+2)\vec{j}$, where $t \in \mathbb R$. Find the cartesian equation of $C$. Identify and sketch. 
+\end{example}
+
+
+$\vec{r}(t) = (t-1, t^2+2) = (x(t), y(t))$. So $x = t-1$, and $y=t^2+2$. Eliminate $t$ among the first result. Now substitute $t=x+1$ into second equation to get $y = (x+1)^2+2$. This is the same as $y- 2 = (x+1)^2$, which can be re-written as $y = x^2+2x+3$. This is a parabola with vertex at point $(-1, 2)$ and which open upwards. 
+
+\subsection{Standard Parametric Curves in $\mathbb R^2$}
+
+
+The vector equation of a \textbf{straight line} segment joining the points $P = (x_1, y_1)$ and $Q = (x_2, y_2)$ is given by $\vec{r}(t) = \vec{r_0} +t\vec{v}$. 
+	
+	\begin{align*}
+	PQ &= Q-P \\
+	&= (x_2, y_2) - (x_1,y_1)\\
+	&= (x_2-x_1,y_2-y_1) . 
+	\end{align*}
+	
+	Therefore, $\vec{r}(t) = (x_1,y_1) + t(x_2-x_1, y_2-y_1)$, where $0 \leq t \leq1$. This is because when $t$ is between 0 and 1, the line segment is between P and Q. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%  JANUARY 26, 2016 %%%%%%%%%%%%%%%%%
+\section{January 25, 2016}
+\subsection{Standard Parametric Curves in $\mathbb R^2$ Cont'd}
+
+The vector equation for an \textbf{ellipse} with center at $(\alpha, \beta)$ and with semi-axes of length $a, b$ is given by $$\vec{r}(t) = \left(\alpha + a\cos(t)\right)\vec{i} + \left(\beta + b\sin(t)\right)\vec{j} \quad t \in [0, 2\pi]$$
+
+Let us justify, that $x = \alpha + a \cos(t)$, and $y = \beta + b \sin(t)$. To find the cartesian equation, we simply eliminate $t$ among the two above equations. We know that $\frac{x- \alpha}{a} = \cos(t)$, and $\frac{y- \beta}{b} = \sin(t)$.
+But $\cos^2 + \sin^2 = 1$, so substituting presents the equation of the ellipse centered at $(\alpha, \beta)$, with a semi-axes of length $(a, b)$
+
+$$\frac{(x - \alpha)^2}{a^2}+ \frac{(y-\beta)^2}{b^2} = 1$$
+
+\bigskip
+The vector equation of a \textbf{circle} centered at $(\alpha, \beta)$ that has a radius of $a$ is given by
+
+$$\vec{r}(t) = (\alpha + a \cos(t))\vec{i} + (\beta + a \sin (t))\vec{j} \quad 0 \leq t \leq 2\pi$$
+Note that this is a special case of the ellipse where $a=b$. Additionally, the cartesian equation becomes
+
+$$(x-\alpha)^2 +(y-\beta)^2 = a^2$$
+
+\bigskip
+The vector equation of the right hand branch of the \textbf{hyperbola} centered at $(\alpha, \beta)$ that has a semi-axes of length $a, b$ is given by
+
+$$\vec{r}(t) = (\alpha +a \cosh(t))\vec{i} + (\beta + b \sinh(t))\vec{j} \quad t \in \mathbb R$$
+Let us justify, by using $\cosh^2 - \sinh^2 = 1$, that the cartesian equation becomes
+
+$$\frac{(x- \alpha)^2}{a^2} - \frac{(y - \beta)^2}{b^2} = 1$$
+Note that this is only a representation of the right hand branch, since $x = \alpha + a \cosh(t)$ where $x \geq \alpha + a$ is only the right hand side.
+
+\bigskip
+
+
+
+\subsection{Standard Parametric Curves in $\mathbb R^3$}
+
+The \textbf{straight line} segment from point $P = (x,_1, y_1, z_1)$ towards the direction of point $Q = (x_2, y_2, z_2)$, is given by the equation $\vec{r}(t) = \vec{r_0} + t \vec{v}$. This becomes
+
+	$$\vec{r}(t) = (x_1, y_1, z_1) + t(x_2-x_1, y_2-y_1, z_2-z_1) \quad 0 \leq t \leq 1$$	
+Note that at $t = 0$, we obtain the initial point, and when $t=1$ we obtain the terminal point. Also remember to record the range of $t$ in calculations.
+
+
+
+\bigskip
+
+The \textbf{helix} is a wire wrapped around a cylinder. The vector equation of a helix is given by
+$$\vec{r}(t) = a \cos(t) \vec{i} + a \sin(t)\vec{j} + bt\vec{k}\quad t \in \mathbb R$$
+The Helix plays an important role in DNA analysis.
+
+\begin{definition}
+A \textbf{surface} is any equation that consists of one, two, or three variables in $\mathbb R^3$.
+\end{definition}
+
+\begin{example}
+$x = 3$ is the equation of a plane in $\mathbb R^3$.
+$x^2 + y^2 = 4$ is a cylinder in $\mathbb R^3$.
+$z = x^2 + y^2$ is a surface called a paraboloid in $\mathbb R^3$.
+\end{example}
+
+\begin{remark}
+The intersection of any two surfaces $S_1$ and $S_2$ results in a space curve $C$.
+
+\end{remark}
+
+\begin{example}
+In each case, identify the plane curve. $\vec{r}(t) = (2 + 4 \cos(t))\vec{i} + (-7 + 4 \sin(t))\vec{j}$, where $0 \leq t \leq 1$.
+$\vec{r}(t) = (-1 +  3\cos(t), 5 + 8 \sin(t))$, where $0 \leq t \leq 2\pi$.
+$\vec{r}(t) = 2 \cosh^2(t)\vec{i} + \sinh(t)\vec{j}$, where $t \in \mathbb R$.
+\end{example}
+
+The first equation denotes the equation of a circle centered at (2,-7) and has a radius of 4. The second equation is an ellipse centered at (-1, 5) and has a semi-axis of $a = 3$, and $b = 8$. The third equation is not a standard parametric curve. Here, $x = 2 \cosh^2(t)$, and $y = \sinh(t)$. Therefore, $\frac{x}{2} = \cosh^2(t)$, and $y = \sinh(t)$. But $\cosh^2(t) - \sinh^2(t) = 1$.  So, $y^2 = \frac{x}{2} -1$. This is the equation of a parabola with a vertex at (2, 0) which opens to the right.
+
+
+\section{January 27, 2016}
+\subsection{Additional Exercises}
+
+\begin{example}
+Find a vector equation for the curve of intersection of the two surfaces, $4x^2 + y^2 = 16$, and $3x-2y+z = 7$.
+\end{example}
+
+To find a parametrization of a curve of intersection between two surfaces, we begin with the equation containing only two variables. We then view that equation in $\mathbb R^2$.
+
+$$\frac{4x^2}{16} + \frac{y^2}{16} = \frac{16}{16}$$
+
+
+By dividing both sides by 16, we get 
+
+$$ \frac{x^2}{4}+\frac{y^2}{16} = 1$$
+
+	
+	 This is the equation of an ellipse centered at $(\alpha,\beta) = (0,0)$, with semi-axes of length is 2, 4.
+
+Its parametric equation is thus given by $x = \alpha + a \cos(t)$, and $y = \beta + b \sin(t)$, where $t \in [0, 2\pi]$. Substituting values, this becomes $x =  2 \cos(t)$, and $y =  4 \sin(t)$. To find the value of z, consider the second equation to substitute for z. The vector equation of curve is thus given by 
+
+\begin{align*}
+	\vec{r}(t) &= x\vec{i} + y \vec{j} + z \vec{k}\\ 
+	&= 2\cos(t)\vec{i} + 4\sin(t) \vec{j} + (7-6\cos(t)+8\sin(t)) \vec{k} \quad,t \in [0, 2\pi]
+\end{align*}
+
+\begin{example}
+Find the parametric equation of the curve of intersection of the surface $z = 4x^2 +y^2$ with the plane of $8x+2y +z= 31$
+\end{example}
+
+Let us first create an equation with two variables by removing the $z$. The equation then becomes $(4x^2+8x)+(y^2+2y)=31$. We need to view this equation in $\mathbb R^2$. We then complete the square. Thus, $4x^2 + 8x = 4(x^2+2x) = 4(x+1)^2 - 4$, and for $y$, it becomes $(y+1)^2-1$. The entire equation becomes:
+
+$$4(x+1)^2 -4 + (y+1)^2-1 = 31$$
+$$4(x+1)^2+(y+1)^2 =36$$
+$$\frac{4(x+1)^2}{36}+ \frac{(y+1)^2}{36} =1$$
+$$\frac{(x+1)^2}{9}+ \frac{(y+1)^2}{36} =1$$
+
+
+This is the equation of an ellipse with centre (-1,-1) and with semi-axes lengths of 3 and 6.
+The parametric equations are therefore: $x = -1 + 3\cos(t)$, $y = -1+6 \sin(t)$, and $z = 41 -24 \cos(t)-12\sin(t)$, $0 \leq t \leq 2 \pi$. The parametric equation is therefore
+
+
+\[  \begin{cases}
+    x = -1 + 3\cos(t)& \quad \\
+    y = -1+6 \sin(t)& \quad 0 \leq t \leq 2 \pi\\
+    z = 41 -24 \cos(t)-12\sin(t)& \quad
+  \end{cases}
+\]
+
+
+
+
+\subsection{Motion Involving a Varying Mass}
+
+
+
+\em{Application to Rockets}\em
+
+A rocket moves forward by the backwards expulsion of the fuel.
+
+\begin{itemize}
+	\item $M$: The initial mass.
+	\item $m = m(t)$: The mass of the rocket at time $t$.
+	\item $m + \Delta m$: The mass of the rocket at time $t + \Delta t$.\\*Note that $\Delta m < 0$, hence $-\Delta m > 0$.
+	\item $\vec{v}(t)$: The velocity of the rocket at time $t$
+	\item $\vec{v} + \Delta v$: The velocity of the rocket at time $t + \Delta t$.
+	\item $\vec{v_e}$: The velocity of the ejected fuel in relation to the rocket (assume this is constant). Hence, the velocity of the gas relative to the Earth is $\vec{v}+\vec{v_e}$.
+	\item$P(t)$: The momentum, which is equal to $(mass)(velocity)$. 
+\end{itemize}
+	
+Recall Newton's Second Law of Motion, which states that the rate of change of momentum = The net force acting on an object. That is
+$$	\frac{\mathrm d P}{\mathrm d t }= \vec{F}$$
+
+Or,  in other words
+
+\begin{align*}
+	\vec{F}&= \frac{\mathrm d P}{\mathrm d t } \\
+	&= \lim_{\Delta t \to 0}  \frac{P(t + \Delta t) - P(t)}{\Delta t}\\
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{January 29, 2016}
+\subsection{Motion Involving Varying Mass Cont'd}
+
+\begin{align*}
+	P(t) &= \text{Initial Momentum}\\
+		&= m \vec{v}
+\end{align*}
+
+\begin{align*}
+	P(t + \Delta t) &= \text{Momentum of Rocket} + \text{Momentum of Gas}\\
+	&= (m+ \Delta m) (\vec{v}+ \Delta \vec{v}) + (-\Delta m)(\vec{v_e})\\
+	&= m \vec{v} + m \Delta \vec{v} + \vec{v} \Delta m + \Delta m \Delta \vec{v} - \Delta m \vec{v_e} 
+\end{align*}
+
+\begin{align*}
+	\Delta P &= P(t + \Delta t) - P(t)\\
+	&= m \Delta \vec{v} - \vec{v_e}\Delta m
+\end{align*}
+
+$$\lim_{\Delta t \to 0} \frac{\mathrm d P}{\mathrm d t} = \lim_{\Delta t \to 0} m\frac{\mathrm d \vec{v}}{\mathrm d t } - \vec{v_e} \frac{\mathrm d m}{\mathrm d t} = \vec{F}$$
+
+Assume that there are no forces acting on the rocket. That is, $\vec{F} = 0$. Therefore
+
+$$m\frac{\mathrm d \vec{v}}{\mathrm d t } - \vec{v_e} \frac{\mathrm d m}{\mathrm d t} = 0$$
+
+For motion in a straight line, we write $\vec{0} = 0\vec{i}$. Where $v_1$ and $v_2$ are the speeds of the rocket and ejected gases respectively. We get 
+
+$$m \frac{\mathrm d v }{\mathrm d t} - v_e\frac{\mathrm d m}{\mathrm d t} = 0$$
+$$v = - v_e \ln{m} + C$$
+
+Assume that the rocket starts at rest. 
+It follows that $$v = -v_e \ln(m) + v_e \ln(M) = v_e \ln \left({\frac{M}{m}}\right)$$
+Assume $v_e$ is constant.
+Assume that the gas is ejected at a constant rate, where $\alpha > 0$ per unit of time. Therefore, $m(t) = M - \alpha t$.
+
+\subsection{Summary}
+
+In conclusion
+
+	$$v = v_e \ln \left({\frac{M}{m}}\right), \quad m(t) = M - \alpha t$$ 
+	
+Where $v$ is the speed of the rocket at time $t$, $v_e$ is the speed of the ejected gases (constant), $\alpha$ is the rate of ejected gases (constant), $M$ is the total initial mass of the rocket, and $m(t)$ is the mass of the rocket at time $t$. 
+	\begin{remark}
+	Note that we assume that no force acts on the rocket, and the rocket starts from rest.
+	\end{remark}
+
+
+\begin{example}
+A rocket with a mass of 52000 kg, which includes 39000 of a fuel mixture, is fired vertically upwards in a vacuum (that is, free space where the gravitational field is negligible). Assume that gases are ejected at a constant rate of 1300 kg/s, and with a constant velocity of magnitude 500 m/s. If the rocket starts from rest, find its speed at times 15, 20, 30, and 35 seconds. 
+\end{example}
+
+Recall that $v = v_0 \ln \left({\frac{M}{m(t)}}\right) = v_0 \ln \left({\frac{M}{M - \alpha t}}\right)$. We note that $M = 52000kg$, $v_0=500m/s$, and $\alpha = 1300kg/s$. We get 235m/s, 347 m/s, and 693 m/s. Observe that all of the fuel is used up when 39000 = 1300t = 30 seconds. Therefore, the rocket will maintain a constant speed of 693 m/s for all $t \geq 30$
+
+\begin{example}
+A rocket moves forward in a straight line only under the forces of the ejected gas. Assume that the gases are ejected at a constant rate of 1000 kg/s, and at a constant velocity with magnitude 400 m/s. Assume that the rocket starts from rest. Let M denote the total initial mass of the rocket, and assume that it starts from rest. What percentage of total initial mass $M$ would the rocket have to burn in order to accelerate to a speed of 800 m/s? What is the speed of the rocket if 40\% of its initial mass is ejected as fuel in the burning process. 
+\end{example}
+
+$v_e = 400 m/s$, $\alpha = 1000 kg/s$, and $M = 1000t$. The mass burned is the difference in the initial mass and the mass at time $t$. 
+
+Let $P$ be the rate of amount of fuel burnt. This is equal to $\frac{M-m}{M}$, or $1-\frac{m}{M}$. Therefore, $\ln \left({\frac{M}{m}}\right) = e$. $P = 1-\frac{m}{M} = 1-\frac{1}{e^2}$. Multiply by 100\%. The answer is therefore 86.5\%. To answer the second question, we determine the speed. We know that $m = M - 0.4M$. We get $v = 400 \ln \left({\frac{1}{.6}}\right) = 204 m/s$.
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+
+\section{February 1, 2016}
+\subsection{Derivative Rules for Vector Functions}
+
+Let $\vec{u}(t)$ and $\vec{w}(t)$ be vector functions in two or three space. 
+\begin{enumerate}
+	\item The Sum / Difference Rule:	$\frac{\mathrm d}{\mathrm d t} \left(\vec{u}(t) \pm \vec{w}(t) \right) = \frac{\mathrm d \vec{u}}{\mathrm dt} \pm \frac{\mathrm d \vec{w}}{\mathrm d t}$.
+	\item Constant Multiple Rule:	$\frac{\mathrm d}{\mathrm d t} (k \vec{u}) = k \frac{\mathrm d \vec{u}}{\mathrm d t} $
+	\item Scalar Product Rule: 	Let $f(t)$ be a scalar function. Then $\left(f(t)\vec{u}(t)\right)' = f(t)'\vec{u}(t) + f(t)\vec{u}(t)'$
+	\item Dot Product Rule:	$(\vec{u}(t) \cdot \vec{w}(t))' = \vec{u}(t)' \cdot \vec{w}(t) + \vec{u}(t) \cdot \vec{w}(t)'$
+	\item Cross Product Rule:	 $(\vec{u}(t) \times \vec{w}(t))'  = \vec{u}(t)' \times \vec{w}(t)+ \vec{u}(t) \times \vec{w}(t)'$.
+	\item Constant Vector Rule:	$\frac{\mathrm d}{\mathrm d t}\left(\vec{C}\right) = \vec{0}$, where $\vec{C}$ is a constant vector.
+
+\end{enumerate}
+
+\begin{definition}
+
+	Let $C$ be a plane or a space curve given parametrically by the vector function $\vec{r}(t), \quad t \in \mathbb Z$.
+	
+	\begin{itemize}
+	
+		\item The Unit Tangent Vector $\vec{T}(t)$: The unit tangent vector of curve $C$ is $\frac{\mathrm d \vec{r}}{\mathrm d t}$ divided by $\|\frac{\mathrm d \vec{r}}{\mathrm d t}\|$. Or $$\vec{T}(t) = \frac{\vec{r}(t)'}{\| \vec{r}(t)'\|}$$ This is assuming that $\vec{r}(t)'$ exists, and is not equal to 0. Note that it points towards the orientation of curve $C$ as shown.
+		\item The Principal Unit Vector $\vec{N}(t)$: Recall that since $\vec{T}(t)$ is a unit vector, then $\| \vec{T}(t) \| = 1$, so $\| \vec{T}(t) \|^2 = 1$. Applying the dot product rule, $\vec{T}' \cdot \vec{T}+\vec{T} \cdot \vec{T}' = 0$. This implies that $2 \vec{T}' \cdot \vec{T} = 0$, so $ \vec{T}' \cdot \vec{T} = 0$. It follows that $\vec{T}(t)'$ is a vector perpendicular to $\vec{T}(t)$. A unit vector in the direction of $\vec{T}(t)'$ is thus given by $$\vec{N}(t) = \frac{\vec{T}(t)'}{\|\vec{T}(t)'\|}$$ This vector is called the principle unit normal (unit normal for short), and will be denoted by $\vec{N}(t)$. Observe that the unit normal is always perpendicular to the tangent.
+		\item The Unit Binormal Vector $\vec{B}(t)$:	For a space curve $C$, the cross product of $\vec{T}$ and $\vec{N}$ is a unit vector orthogonal to both $\vec{T}$ and $\vec{N}$. We justify that $\vec{B}(t)$ is indeed a unit vector. This vector is called the unit binormal vector (binormal vector for short), and is denoted by $\vec{B}(t)$, where $$\vec{B}(t) = \vec{T}(t) \times \vec{N}(t)$$ Thus, 
+		
+		$$\| \vec{B}(t) \| =\| \vec{T} \times \vec{N} \|= \| \vec{T} \| \| \vec{N} \|  = 1$$
+		\item The Curvature $\kappa$: The curvature of a plane or space curve $C$ is denoted and defined by $$\kappa = \frac{\|\mathrm d \vec{T}\|}{\|\mathrm d s\|} $$
+		$s$ denotes the arc length of a curve $C$ measured from a fixed point $P_0$ to an arbitrary point $P$. Geometrically, the curvature provides a measure of how rapidly the unit tangent vector is turning as the arc length $s$ is traversed. If $\vec{T}(t)$ is a function of $\vec{T}$, that is $\vec{T}(t) = \vec{T}$, then by the chain rule, $\frac{\mathrm d \vec{T}}{\mathrm d t} = \frac{\mathrm d \vec{T}}{\mathrm d s} * v$. Therefore $$\kappa = \frac{1}{v}\frac{\|\mathrm d \vec{T}\|}{\|\mathrm d t\|} $$
+		
+		
+		
+		\item The Radius of Curvature $\rho$: At a point $P$ on the curve $C$ where $\kappa =/= 0$, we define the radius of curvature by $$\rho \ = \frac{1}{\kappa}$$ The circle of radius $\rho$ that is tangent to curve $C$ of $P$ on the concave side is called the circle of curvature. Geometrically, the circle of curvature is the circle that best fits the curve $C$ in the neighbourhood of point $P$. 
+		\item The Torsion $\tau$: The torsion for a space curve $C$ is denoted ad defined by
+		$$\tau = -\frac{\mathrm d \vec{B}}{\mathrm d s} \cdot \vec{N}$$
+		
+		Where $S$ is the length of curve C measured from a fixed point $P_0$ to arbitrary point $P$.  Note that if $\vec{B}$ is a function of $r$, then by the chain rule $\frac{\mathrm d \vec{B}}{\mathrm d t} = \frac{\mathrm d \vec{B}}{\mathrm d s} * \frac{\mathrm d s}{\mathrm d t}$. We note that $\frac{\mathrm d s}{\mathrm d t} = v$. Substituting, we get 
+		
+		$$\tau = -\frac{1}{v}\frac{\mathrm d \vec{B}}{\mathrm d t}\cdot\vec{N}$$
+		This is a scalar quantity. Geometrically, the torsion measures to some extent the amount by which a twisted curve lies outside the plane containing $\vec{T}$ and $\vec{N}$. 
+	\end{itemize}
+
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{February 3, 2016}
+
+\subsection{Alternative Formulas}
+
+Alternative formulas for $\vec{T}(t), \vec{N}(t), \vec{B}(t), \kappa, \rho, \tau$. Now, we shall derive an easy way to compute the formulas for the six quantities above using velocity, acceleration and speed. 
+
+\begin{itemize}
+	\item The Unit Tangent Vector $\vec{T}(t)$: We note that velocity is $\vec{r}(t)'$, and speed is $\|\vec{r}(t)'\|$. Therefore
+	$$\vec{T}(t) = \frac{\vec{v}(t)}{v}$$
+	
+	\item Curvature $\kappa$: It can be shown that	$$\kappa = \frac{\| \vec{v} \times \vec{a}\|}{v^3}$$
+	\item The Unit Binormal Vector $\vec{B}(t)$: This can be simplified to	
+	$$\vec{B}(t) = \frac{\vec{v} \times \vec{a}}{\|   \vec{v} \times \vec{a}    \|}$$
+	\item The Radius of Curvature $\rho$: Recall that $\rho = \frac{1}{\kappa}$. Therefore
+	$$\rho = \frac{v^3}{\| \vec{v} \times \vec{a} \|}$$
+	\item The Principal Unit Vector $\vec{N}(t)$: Perhaps for most planes or space curves, the easiest formula is given by 
+	$$ \vec{N}(t) = \vec{B} \times \vec{T}$$
+	This follows from the fact that the triple $\vec{T}, \vec{N}, \vec{B}$ form a right handed set of mutually orthogonal unit vectors. 
+
+	\item The Torsion $\tau$: It can be shown using derivation that
+	$$\tau = \frac{(\vec{v} \times \vec{a})\vec{a}(t)'}{\|\vec{v}\times \vec{a}\|^2}$$
+\end{itemize}
+
+\subsection{Tangential and Normal Components of Acceleration}
+We have shown earlier that 
+$$\vec{a} = \frac{\mathrm d v}{\mathrm d t}\vec{T} + \kappa v^2\vec{N}$$
+If we let $a_T = \frac{\mathrm d v}{\mathrm d t}$, and $a_N = \kappa v^2$, then we get
+
+$$\vec{a} = a_T \vec{T} + a_N\vec{N}$$
+
+We shall call $a_T$ and $a_N$ that Tangential and Normal Component.
+
+\begin{remark}
+Note that $a_T\vec{T}$ is the Tangential Acceleration, and $a_N\vec{N}$ is the Normal Acceleration.
+\end{remark}
+
+By recalling from the definition of $a_T$ and $a_N$, we note that
+
+$$a_n = \frac{\|\vec{v}\times\vec{a}\|}{v}$$
+By simplifying by taking dot product of acceleration equation on left with $\vec{v}$, we get that $\vec{v} \cdot \vec{a} = \vec{v}\left(  a_T \vec{T} + a_N\vec{N} \right)$. We note that $\vec{v} = v\vec{T}$, and that $\|\vec{T}\| = 1$, and $\vec{T}$ is perpendicular with $\vec{N}$, so the dot product between these is 0.
+
+$$a_T = \frac{\vec{v} \cdot \vec{a}}{v}$$
+
+\begin{remark}We note that a curve in $\mathbb R^2$ may be viewed as a curve in $\mathbb R^3$ by simply inserting a 2-component of z-component of zero value. Hence, all the formulas may be applied to plane or space curves. 
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{February 5, 2016}
+\subsection{ Summary}
+
+Let $\vec{r}(t)$ be the position of a moving particle in two or three space, and let $C$ be the curve given parametrically by $\vec{r}(t)$. 
+\begin{itemize}
+	\item $$\vec{v}(t) = \frac{\mathrm d \vec{r}}{\mathrm d t}$$
+	\item $$\vec{a}(t) = \frac{\mathrm d \vec{v}}{\mathrm d t}$$
+	\item $$\vec{T}(t) = \frac{\vec{v}(t)}{v}$$
+	\item $$\vec{B}(t) = \frac{\vec{v} \times \vec{a}}{\|   \vec{v} \times \vec{a}    \|}$$
+	\item $$ \vec{N}(t) = \vec{B} \times \vec{T}$$
+	\item $$\kappa = \frac{\| \vec{v} \times \vec{a}\|}{v^3}$$
+	\item $$\rho = \frac{v^3}{\| \vec{v} \times \vec{a} \|}$$
+	\item $$\tau = \frac{(\vec{v} \times \vec{a})\vec{a}(t)'}{\|\vec{v}\times \vec{a}\|^2}$$
+	\item $$a_T = \frac{\vec{v} \cdot \vec{a}}{v}$$
+	\item $$a_N = \frac{\|\vec{v}\times\vec{a}\|}{v}$$
+\end{itemize}
+
+\begin{remark}
+For convenience, we may think of a plane curve $C$ as a space curve by simply inserting a $z$-component of zero value. hence, all formulas above may be applied.
+\end{remark}
+
+\begin{example}
+The position of a moving object in space is given by $$\vec{r}(t) = t^2\vec{i} + t\vec{j} + \frac{1}{2}t^2\vec{k}$$
+Find the tangential and normal component of acceleration at time $t=4$. 
+\end{example}
+We note that $\vec{r}$ can be written as $\vec{r} = \left(t^2, t, \frac{1}{2}t^2 \right)$, $\vec{v} = \left(2t, 1, t \right)$, and  $\vec{a} = \left(2, 0,1 \right)$. We substitute $t=4$ to determine speed. Then, we substitute into the formulas. Thus we get $a_T = \frac{20}{9}$, and $a_N = \frac{\sqrt 5}{9}$.
+
+
+\begin{example}
+The curve $C$ in three space is given by 
+$$\vec{r}(t) = \cosh (t) \vec{i} - \sinh (t)\vec{j} + t \vec{k}$$
+Find all of the six quantities at $t = 0$. \end{example}We note that $\vec{r} = \left(\cosh (t) , - \sinh (t),t \right)$. Thus, $\vec{v} = \left(\sinh (t) , - \cosh (t),1 \right)$ and $\vec{a} = \left(\cosh (t) , - \sinh (t),0\right)$. We substitute for $t=0$. Then substitute into the formulas. Doing so results in
+
+$$\vec{T} = \frac{1}{\sqrt{2}}(0,-1,1) = \left(0,-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right)$$
+
+$$\vec{B} = \frac{1}{\sqrt{2}}(0,1,1) = \left(0, \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right)$$
+
+$$\vec{N} = \frac{1}{2}(2,0,0) = (1,0,0)$$
+$$\kappa = \frac{1}{2}$$
+$$\rho = 2$$
+$$\tau = -\frac{1}{2}$$
+
+
+\begin{example}
+Find $\vec{T}, \vec{N}, \kappa, \rho$ for the plane curve given by the cartesian equation $$y = \ln (\cos (x))$$
+Let us first find the parametric equation of the curve. *Note that this curve is not one of the standard curves. \end{example}
+
+Let us say $x = t$. Hence, $y = \ln (\cos (t))$. Therefore, $\vec{r}(t) = t\vec{i} + \ln (\cos (t))\vec{j}$. For convenience, let us view the curve as a space curve by inserting a z-component of zero. We get $\vec{r} = \left(t, \ln (\cos (t)), 0\right)$ where $t=\frac{\pi}{4}$. 
+
+Thus $\vec{v}(t) = \left( 1, -\frac{\sin(t)}{\cos(t)},0\right)$ and $\vec{a}(t) = \left(0, -\sec^2(t), 0\right)$. At $t= \frac{\pi}{4}$, we get $\vec{v}(t) = (1, -1, 0)$ and $\vec{a}(t) = (0,-2,0)$. Solving for speed, $v = \sqrt 2$. By calculating the remaining values using the provided formulas, we get $$\vec{T} = \frac{1}{\sqrt 2}(1, -1, 0)$$ $$\vec{B} = (0,0,-1)$$ $$\vec{N} = \frac{1}{\sqrt 2}(-1,-1,0)$$ $$\kappa = \frac{1}{\sqrt 2}$$ $$\rho= \sqrt{2}$$
+
+
+
+
+\section{February 8, 2016}
+
+\subsection{Functions of Two and Three Variables}
+\begin{definition}
+A function $f$ of two independent variables is a rule that assigns to each ordered pair $(x,y)$ one and only one real number $z$ which we write $f(x,y) =z$. Let $z = f(x,y)$ be a function of two independent variables.
+\end{definition}
+ 
+
+The \textbf{domain} of $f$ is the set of all ordered pairs $(x,y)$ such that $f$ is defined and real. It is denoted by $dmf$ or $\mathcal D$.
+
+Recall that the graph of a function of a single variable $y=f(x)$ is the set of all ordered pairs $(x,y)$ such that $y=f(x)$. $y=f(x)$ is referred to as a \textbf{curve} in $\mathbb R^2$. Likewise, the graph of a function of two independent variables is the set of all ordered triples $(x, y, z)$ such that $z=f(x,y)$. This is referred to as a \textbf{surface} in $\mathbb R^3$.
+
+\textbf{Level curves} are the horizontal cross sections of a particular surface. It is given by $z=c$, where $c$ is a real number. In other words, $f(x,y) = c$.
+
+\begin{remark}
+The graph of a function of three or more variables is referred to as a hypersurface. For a function $w = f(x, y, z)$, the level surface is given by $f(x, y, z) = c$.
+\end{remark}
+
+\subsection{Summary of Standard Plane Curves}
+
+\begin{enumerate}
+	\item The Circle: The equation $(x-h)^2 + (y-k)^2 = r^2$ is the equation of a circle centered at $(h,k)$ with a radius of $r$.
+	\item The Ellipse: The equation $\frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1$ is the equation of an ellipse centered at $(h,k)$ with a semi-axis of $a, b>0$.
+	\item The Hyperbola: The equation $\frac{(x-h)^2}{a^2} - \frac{(y-k)^2}{b^2} = \pm 1$ is the equation of an hyperbola centered at $(h,k)$ with a semi-axis of $a, b>0$. If the right hand side is $+1$, it opens left and right. If the right hand side is $-1$, it opens from top to bottom.
+	\item The Parabola: The equations $y-k = a(x-h)^2$ and $x-h = a(y-k)^2$ are equations of parabolas with a vertex of $(h,k)$. Note that the equations open upwards and towards the right respectively if $a>0$, and open downwards and towards the left respectively if $a<0$.
+	\item The Straight Line: 	The equation $ax+by+c=0$, where $a, b, c$ not all 0 is an equation of a straight line with a slope of $-\frac{a}{b}$. The equation of a vertical line is $x=k$ and the equation of a horizontal line is $y=l$ where $k, l \in \mathbb R$.	
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+\section{February 10, 2016}
+\subsection{Summary of Standard Plane Curves Examples}
+
+\begin{example}
+In each case, find the domain of the given function. $$f(x) = \frac{1}{x^2+y-1}$$
+$$f(x,y) = \left(3x-7y^2+32 \right)^{1/3}$$
+$$f(x,y) = \sqrt{\left(\ln \left(17 -x^2-y^2 \right)\right)}$$
+$$f(x,y) = \ln (x+y)$$
+
+
+\end{example}
+
+We note that the domain of $f(x,y)$ consists of all ordered pairs $(x,y)$ such that $f$ is defined and is real. For the first question, we note $f$ is defined and real provided that the denominator is not 0. In other words, $\mathcal D = \{(x, y) | x^2+y-1 \neq 0 \}$. We note that $x^2+y-1 = 0$ is the equation of a parabola with vertex at $(0,1)$ and which opens downwards. So $f$ is defined for everything other than the curve. 
+
+Consider the second equation. Clearly, the cube root is defined and real for all $(x,y) \in \mathbb R^2$. Thus, the domain is the entire xy-plane. $\mathcal D = \mathbb R^2$.
+
+Recall that the domain of $f$ is the set of all $(x,y)$ such that $f$ is defined and real. For logarithms, the domain is $t > 0$, and $\ln (t) \geq 0$ for all $t \geq 1$. $f$ is defined and real provided that the quantity under the square root is  greater than or equal to 0. So, we require that $\ln \left(17 -x^2-y^2\right) \geq 0$. We consider $17-x^2-y^2$ as $t$. Thus, we require that $17-x^2-y^2 \geq 1$. Therefore, $\mathcal D = \{ (x, y) | x^2+y^2 \leq 16\}$.
+
+For the fourth equation, we note that $f$ is defined and real only when $x+y > 0$. Thus, $\mathcal D = \{ (x, y) | x+y > 0\}$.
+
+\begin{remark}
+A dashed line is used for all quantities that are $>, <$ while a solid line is for all quantities $\geq, \leq$.
+\end{remark}
+
+\section{February 12, 2016}
+\subsection{Continued Examples}
+
+\begin{example}
+Let $f(x,y) = y^2 + 4x^2+4$. Sketch the level curve of the function corresponding to $c=0, 4, 8$ on the same set of coordinate axes. Recall that level curves are given by $f(x,y) = c$.
+That is
+
+$$y^2-4x^2+4 = c$$
+
+
+\end{example}
+
+For $c=0$, we obtain $4x^2-y^2 = 4$, which reduces to $x^2-\frac{y^2}{4} = 1$. This is the equation of a hyperbola with centre at $(0,0)$, a semi-axis of $a=1$, $b=2$, and which opens to the left and right. The vertices are $(\pm a, 0) = (\pm 1, 0)$. 
+
+For $c=4$, the equation becomes $y^2-4x^2 = 0$. Factoring, we get $(y-2x)(y+2x)$. So $y = 2x$, or $y=-2x$. This is a pair of lines through the origin.
+
+For $c=8$, we obtain $y^2 -4x^2 +4 = 8$. This reduces to $x^2 -\frac{y^2}{4} = -1$. This is the equation of a hyperbola with a centre at $(0,0)$, a semi-axis of $a=1$, $b=2$, and which opens up and down. The vertices are $(0, \pm b) = (0, \pm 2)$.
+
+\begin{example}
+Given $f(x,y) = \frac{4x^2+10y^2-64}{12x^2+6y^2}$, sketch the level curves of $f$ corresponding to $c=0,1,-1$. That is
+
+$$\frac{4x^2+10y^2-64}{12x^2+6y^2} = c$$
+
+\end{example}
+
+For $c=-1$, cross multiply. After simplifying, we get that $x^2+y^2 = 4$. This is the equation of a circle centered at $(0,0)$ with a radius of 2. 
+
+For $c=1$, cross multiply. We get $4x^2+10y^2-64 = 12x^2+6y^2$. By combining like terms, $8x^2-4y^2=-64$. We can further reduce this to $\frac{x^2}{8}-\frac{y^2}{16} = -1$. This is the equation of a hyperbola centered at $(0,0)$, with semi-axis $a=\sqrt{8}$, $b=4$, and which opens up and down with vertices $(0, \pm b) = (0, \pm 4)$. 
+
+For $c=0$, we cross multiply and reduce to get $\frac{x^2}{16} + \frac{y^2}{6.4} = 1$, which is the equation of an ellipse with a centre at $(0,0)$, semi-axis of $a=4$, $b=\sqrt{6.4}$, with vertices at $(\pm 4, 0)$ and $(0, \pm \sqrt{6.4})$.
+
+
+
+
+\subsection{Quadric Surfaces}
+
+A second degree equation in three variables is called a \textbf{quadric surface}. The following are instances of quadric surfaces, which fit into three families. 
+
+Let $a, b, c$ be positive real numbers. 
+
+\begin{enumerate}
+	\item The Ellipsoid Family: It is composed of two members. \\The \textbf{ellipsoid} centered at $(0,0,0)$ and with semi axes of $a, b, c$ is given $$\frac{x^2}{a^2}+\frac{y^2}{b^2} + \frac{z^2}{c^2} =1$$ The \textbf{sphere} centered at $(0,0,0)$ with radius $a$ is given 
+	$$x^2+y^2+z^2 = a^2$$
+	
+	\item The Paraboloid Family: It is composed of three members.	\\The \textbf{elliptic paraboloid} has vertices at the origin with the z-axis as its axis of symmetry. It opens upwards if $z>0$, and downwards otherwise. It is given by
+	$$z = \pm \left(\frac{x^2}{a^2} + \frac{y^2}{b^2} \right), \quad a\neq b$$
+	The \textbf{circular paraboloid} has vertices at the origin with the z-axis as its axis of symmetry. It opens upwards if $z>0$, and downwards otherwise. (Looks like an upside down bowl). It is given by
+	$$z = \pm \left( \frac{x^2}{a^2} + \frac{y^2}{a^2} \right)$$
+	The \textbf{hyperbolic paraboloid}  has vertices at the origin with the z-axis as its axis of symmetry. It is given by
+	$$z = \pm \left(\frac{x^2}{a^2} - \frac{y^2}{b^2} \right)$$
+
+	\item The Hyperboloid Family: It is composed of three members. 
+	\\The \textbf{hyperboloid of one sheet} has a centre at the origin with the z-axis as its axis of symmetry (vertical wormhole). It is given by
+	$$\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2} = 1$$
+	The \textbf{hyperboloid of two sheets} has a centre at the origin with the z-axis as its axis of symmetry (vertical bowls). It is given by
+
+	$$\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2} = -1$$
+	The \textbf{cone} has a vertex at the origin with the z-axis as its axis of symmetry. If the cross section of a cone by a horizontal plane is a circle, parabola, ellipse, or hyperbola, then the cone is referred to as circular, parabolic, elliptic, or hyperbolic respectively (vertical cones). It is given by
+	$$z^2=\frac{x^2}{a^2}+\frac{y^2}{b^2} $$
+
+\end{enumerate}
+
+
+\section{February 22, 2016}
+\subsection{Quadric Surfaces Cont'd}
+
+\begin{remark}
+All eight quadric surface equations can have $x,y, z$ replaced with $(x-h), (y-k), (z-l)$ respectively to obtain a translated quadric surface. An equation of a quadric surface with axes of symmetry in the $x$ or $y$ axes (or parallel to the $x$ or $y$-axes) is similar to the ones with the axes of symmetry being the z-axis.
+\end{remark}
+
+\begin{example}
+$$\frac{(x-1)^2}{a^2}-\frac{(y+3)^2}{b^2}+\frac{(z-2)^2}{c^2} = 1$$ is an equation of a hyperboloid of one sheet centered at $(1, -3, 2)$ that is parallel to the y-axis.
+\end{example}
+
+\subsection{Two Special Surfaces}
+\begin{enumerate}
+	\item The \textbf{plane} is given by the following equation, where $a, b, c$ are not all zero. If $d$ is 0, then the plane passes through the origin. We note that when $z=0$, then this refers to the $xy$ plane, and when $z=c$ where $c$ is a constant, then this is a plane parallel to the $xy$ plane. This is also true of $x, y$.
+	$$ax+by+cz+d=0$$
+	\item The \textbf{special cylinder} is an equation in $\mathbb R^3$ which contains only two of the three variables of $x, y, z$. The equation of a cylinder is generated by a straight line parallel to the axis determined by the missing variable in the equation. For instance, in $\mathbb R^3$, a cylinder parallel to the z-axis is given by
+	$$y = x^2$$ 
+\end{enumerate}
+
+\begin{example}
+In each case, identify the surface and sketch. $$x=y^2 + z^2$$ $$z = \sqrt{9-x^2-y^2}$$ $$x^2+y^2+z^2=9$$ 
+$$x+2y+4z = 12$$  $$-225x^2+100y^2-36z^2+900=0$$ $$z= -\sqrt{x^2+y^2}$$ 
+$$z = 2-4x^2-4y^2$$ $$x^2 + y^2 + z^2 -8z = 0$$ $$x^2+z^2=1$$ $$y = \sin(x), \quad 0 \leq x \leq \pi$$ 
+\end{example}
+
+
+
+
+
+$x=y^2 + z^2$. This is a paraboloid with a vertex at the origin and an axis of symmetry in the x-axis. It opens towards the front (appears like a single bowl facing outwards).
+
+$z = \sqrt{9-x^2-y^2}$. We first square both sides to get $x^2+y^2+z^2=9$. This is the equation of a sphere centered at the origin with a radius of 3. Note however that $z>0$ from the square root. Therefore, the equation represents only the upper hemisphere.
+
+$x+2y+4z = 12$. We note that this is the equation of a plane. To sketch this, we simply find the $x, y, z$ intercepts.
+
+$-225x^2+100y^2-36z^2+900=0$. We note that this is equivalent to $225x^2-100y+36z^2=900$. We then divide both sides by 900. The equation becomes $\frac{x^2}{4}-\frac{y^2}{9}+\frac{z^2}{25} = 1$. This is therefore a hyperboloid of one sheet. To sketch, we note that it has a centre at the origin, and an axis of symmetry in the y-axis, 
+
+$z= -\sqrt{x^2+y^2}$. We first square both sides to get $z^2 = x^2 + y^2$. This is the equation of a cone with a vertex at the origin and with the z-axis as the axis of symmetry. However, $z \leq 0$ from initial equation. Therefore, the equation represents only the bottom cone. 
+
+$z = 2-4x^2-4y^2$. This can be reduced to $z-2 = -\left(4x^2+4y^2\right)$. This is the equation of a paraboloid (circular) with a vertex at $(0,0,2)$ and an axis of symmetry in the z-axis which opens downwards. 
+
+$x^2 + y^2 + z^2 -8z = 0$. We will need to complete the square. The equation then becomes $x^2 + y^2 +(z-4)^2 = 16$. This is the equation of a sphere centered at $(0,0,4)$ with a radius of $4$. 
+
+$x^2+z^2=1$. This is the equation of a cylinder since there are only two variables. It is centered at the origin, has a radius of $1$ and a generator parallel to the y-axis. 
+
+$y = \sin(x)$ where $0 \leq x \leq \pi$. This is an equation of a cylinder with a generator parallel to the z-axis. Simply sketch the graph of $y = \sin(x)$, then pile up in the z direction. 
+
+
+
+
+
+
+
+
+
+\section{February 24, 2016}
+\subsection{Partial Derivatives of a Function of Several Variables}
+
+
+\begin{definition}
+The partial derivative of a function of two independent variables. Let $z = f(x,y)$ be a function of the two independent variables $x, y$. Provided that the limit exists, the partial derivative of $z$ with respect to $x$ is denoted and defined by $$\frac{\partial z}{\partial x} = \lim_{h \to 0}\frac{f(x+h,y)-f(x,y)}{h}$$
+Provided that the limit exists, the partial derivative of $z$ with respect to $y$ is denoted and defined by $$\frac{\partial z}{\partial y} = \lim_{k \to 0}\frac{f(x, y+k)-f(x,y)}{k}$$
+
+\end{definition}
+
+\begin{remark}
+The partial derivative $\frac{\partial z}{\partial x}$ is the derivative of $z$ with respect to $x$ by treating $y$ as a constant. Similarly, the partial derivative $\frac{\partial z}{\partial y}$ is the derivative of $z$ with respect to $y$ by treating $x$ as a constant.
+\end{remark}
+
+\subsection{Other Notations for Partial Derivatives}
+
+*Note that in the following, $"1"$ indicates the position of the first variable and $"2"$ indicates the position of the second variable. We do not use prime notation for partial derivatives. 
+\begin{itemize}
+	\item  $\frac{\mathrm d f}{\mathrm d x}$ and  $\frac{\mathrm d f}{\mathrm d y}$
+	\item $f_x(x,y)$ and $f_y(x,y)$
+	\item $f_1(x,y)$ and $f_2(x,y)$
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{February 26, 2016}
+\subsection{Partial Derivatives Cont'd}
+
+\begin{remark}
+The partial derivatives of a function of three or more variables are computed similarly. For instance, let $w=f(x, y, z)$. Then $\frac{\partial w}{\partial y}$ is the derivative of $w$ with respect to $y$ but holding both $x, z$ to be constant.
+\end{remark}
+
+\begin{example}
+Let $f(x,y) = x^3y+\sin(xy)+\tan ^{-1}(x)$. Find $\frac{\partial f}{\partial x}$ and $\frac{\partial f}{\partial y}$.
+\end{example}
+
+We know that $f(x,y) = x^3y + \sin(xy)+\tan^{-1}(x)$ can be re-written as $f(x,y) = yx^3 + \sin(yx) + \tan^{-1}(x)$. We now solve for the partial derivatives of $f$ with respect to $x$ and $y$. We get $\frac{\partial f}{\partial x} = 3x^2y + y\cos(xy) + \frac{1}{1+x^2}$ and $\frac{\partial f}{\partial y} = x^3 + x\cos(xy)$.
+
+\begin{example}
+$f(x, y, z) = xy + xz + yz$. Find $\frac{\partial f}{\partial z}$.
+\end{example}
+
+$f_z(x, y, z) = 0 +x+y = x+y$.
+
+\subsection{Higher Order Partial Derivatives}
+
+Let $z=f(x, y)$. From now on, we may call the partial derivatives $\frac{\partial f}{\partial x}$ and $\frac{\partial f}{\partial y}$ the \textbf{first order partial derivatives} of $f$. There are four \textbf{second order partial derivatives} for the function $z=f(x,y)$.They are denoted and defined as follows:
+
+\begin{enumerate}
+	\item $\frac{\partial ^2 z}{\partial x^2} = \frac{\partial}{\partial x} \left(\frac{\partial z}{\partial x} \right)$
+	\item $\frac{\partial ^2 z}{\partial y^2} = \frac{\partial}{\partial y} \left(\frac{\partial z}{\partial y} \right)$
+	\item $\frac{\partial ^2 z}{\partial x \partial y} = \frac{\partial}{\partial x} \left(\frac{\partial z}{\partial y} \right)$
+	\item $\frac{\partial ^2 z}{\partial y \partial x} = \frac{\partial}{\partial y} \left(\frac{\partial z}{\partial x} \right)$
+\end{enumerate}
+
+\begin{remark}
+Note that the last two are \textbf{mixed partials}. The mixed partials are equal under certain conditions (mainly continuity of partial derivatives). That is, in certain conditions, $\frac{\partial ^2 z}{\partial x \partial y} = \frac{\partial ^2 z}{\partial y \partial x}$.
+
+\end{remark}
+
+\subsection{Other Notations for Second Order Partials}
+
+\begin{itemize}
+	\item $\frac{\partial ^2 f}{\partial x^2}, \frac{\partial ^2 f}{\partial y^2}, \frac{\partial ^2 f}{\partial x\partial y}, \frac{\partial ^2 f}{\partial y \partial x}$. (Mixed partials evaluated right to left).
+	\item $f_{xx}(x, y), f_{yy}(x, y), f_{yx}(x, y), f_{xy}(x, y)$. (Mixed partials evaluated left to right).
+	\item $f_{11}(x, y), f_{22}(x, y), f_{21}(x, y), f_{12}(x, y)$. (Mixed partials evaluated left to right).
+\end{itemize}
+
+
+\begin{remark}
+Second order partial derivatives can be generalized for functions of three or more variables. For instance, if we let $w = f(x, y, z)$, then the second order partials are given by $f_{xx}(x, y, z), f_{xy}(x, y, z), f_{xz}(x, y, z), f_{yx}(x, y, z), f_{yy}(x, y, z), f_{yz}(x, y, z)$, $f_{zx}(x, y, z), f_{zy}(x, y, z), f_{zz}(x, y, z)$.
+\end{remark}
+
+\begin{remark}
+Partial derivatives of order three or higher are defined similarly. For instance, it we let $w = f(x, y, z)$, then $\frac{\partial^3 w}{\partial x \partial ^2y}$ is the third order partial derivative of $w$ with respect to $y, y, x$. Likewise,  $\frac{\partial^3 w}{\partial z \partial x \partial y}$ is the third order partial derivative of $w$ with respect to $y, x, z$.
+\end{remark}
+
+\begin{example}
+Let $z=x^{\sin(y)}+y$. Find $\frac{\partial ^2 z}{\partial x \partial y}$.
+\end{example}
+
+In order to compute this, we compute from right to left. That is, we evaluate $\frac{\partial z}{\partial y}$ before evaluating $\frac{\partial }{\partial x }$. We use the fact that $a^b = e^{b\ln(a)}$. Thus, $z=e^{\sin(y)\ln(x)}+y$. So $\frac{\partial z}{\partial y} = e^{\sin(y)\ln(x)}\ln(x)\cos(y)+1$. Therefore 
+
+
+
+\begin{align*}
+	\frac{\partial ^2 z}{\partial x \partial y} &= \frac{\cos(y)e^{\sin(y)\ln(x)}}{x} + \frac{\sin(y)e^{\sin(y)\ln(x)}\ln(x)\cos(y)}{x}\\
+	&= \frac{\cos(y)e^{\sin(y)\ln(x)}\left(1+\ln(x)\sin(y)\right)}{x}\\
+	&=\frac{\cos(y)x^{\sin(y)}\left(1+\ln(x)\sin(y)\right)}{x}\\
+	&= \cos(y)x^{\sin(y)-1}\left(1+\ln(x)\sin(y)\right)
+\end{align*}
+
+\begin{example}
+Let $f(x, y) = xe^{\frac{y}{x}}$. Find all second order partials.
+\end{example}
+
+We note that $f(x, y) = xe^{yx^{-1}}$. Additionally, $\frac{\partial f}{\partial x} = \left(1-yx^{-1}\right)e^{yx^{-1}}$ and $\frac{\partial f}{\partial y} = e^{yx^{-1}}$.
+
+\begin{align*}
+	\frac{\partial^2 f}{\partial y^2} &= \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial y} \right)\\
+	&= \frac{\partial}{\partial y}\left(e^{yx^{-1}} \right)\\
+	&= e^{\frac{y}{x}}\left(\frac{1}{x}\right)\\
+	\\
+	\frac{\partial^2 f}{\partial x^2} &= \frac{\partial}{\partial x}\left(\frac{\partial f}{\partial x} \right)\\
+	&= \frac{\partial}{\partial x}\left(1-yx^{-1}\right)e^{yx^{-1}}\\
+	&= -yx^{-2}e^{yx^{-1}}+yx^{-2}e^{yx^{-1}}-yx^{-1}e^{yx^{-1}}\left(-yx^{-2}\right)\\
+	&=e^{\frac{y}{x}}\left(\frac{y^2}{x^3}\right)\\
+	\\
+	\frac{\partial^2 f}{\partial y \partial x} &= \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x} \right)\\
+	&= \frac{\partial}{\partial y}\left(1-yx^{-1}\right)e^{yx^{-1}}\\
+	&= \left(-x^{-1}\right)e^{yx^{-1}} + \left(1-yx^{-1}\right)e^{yx^{-1}}\left(x^{-1}\right)\\
+	&= e^{\frac{y}{x}}\left(-\frac{y}{x^2}\right)\\
+\end{align*}
+
+\begin{align*}
+	\frac{\partial^2 f}{\partial x \partial y} &= \frac{\partial}{\partial x}\left(\frac{\partial f}{\partial y} \right)\\
+	&=  \frac{\partial}{\partial x}\left(e^{yx^{-1}}\right)\\
+	&=e^{\frac{y}{x}}\left(-\frac{y}{x^2}\right)\\
+\end{align*}
+
+\begin{remark}
+Note that it is much easier to computer $\partial x \partial y$ in that order first.
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{February 29, 2016}
+\subsection{Chain Rule}
+
+The chain rule for functions of several variables. Let $y = f(x)$, and let $x$ be itself a function of $t$. Then $y$ is indirectly a function of $t$. We want $\frac{\mathrm d y}{\mathrm d t}$, so we interpret the functions as a chained function. Thus, by the chain rule
+
+$$\frac{\mathrm d y}{\mathrm d t} =\frac{\mathrm d f(x)}{\mathrm d x}\frac{\mathrm d x}{\mathrm d t}$$
+
+Likewise, let $z=f(x,y)$, where $x=x(t)$, and $y=y(t)$. Hence, $z$ itself is a function of $t$. Thus, $\frac{\mathrm d z}{\mathrm d t}$ is the sum of two chains of single variables (one for $x$, and one for $y$).
+
+$$\frac{\mathrm d z}{\mathrm d t} = \frac{\partial f}{\partial x}\frac{\mathrm d x}{\mathrm d t} + \frac{\partial f}{\partial y}\frac{\mathrm d y}{\mathrm d t}$$
+
+\subsection{Other Versions of Chain Rule}
+
+Let $w=f(x,y,z)$ where $x=x(t)$, $y=y(t)$, and $z=z(t)$. Therefore, $w=w(t)$. Thus
+
+$$\frac{\mathrm d w}{\mathrm d t} = \frac{\partial f}{\partial x}\frac{\mathrm d x}{\mathrm d t} + \frac{\partial f}{\partial y}\frac{\mathrm d y}{\mathrm d t}+\frac{\partial f}{\partial z}\frac{\mathrm d z}{\mathrm d t} $$
+
+\begin{remark}
+Note that the partial symbol is used since the function $f$ is a function of many variables.
+\end{remark}
+
+
+Let $z=f(x,y)$ where $x,y$ are functions of $u,v$ such that $x=x(u,v)$ and $y=y(u,v)$. Clearly, $z=z(u,v)$. Indeed, we note that 
+$$\frac{\partial z}{\partial u}=\frac{\partial f}{\partial x}\frac{\partial x}{\partial u} +\frac{\partial f}{\partial y}\frac{\partial y}{\partial u}$$
+
+Similarly for $v$
+
+$$\frac{\partial z}{\partial v}=\frac{\partial f}{\partial x}\frac{\partial x}{\partial v} +\frac{\partial f}{\partial y}\frac{\partial y}{\partial v}$$
+
+ 
+
+\subsection{Tree Diagram}
+
+The Tree Diagram is a powerful tool which eliminates the need to memorize several versions of the chain rule for functions of several variables.
+
+Given $z=f(x,y)$ where $x=x(u,v)$ and $y=y(u,v)$. We want to find $\frac{\partial z}{\partial u}$ and $\frac{\partial z}{\partial v}$. We shall call $x, y$ original variables, and $u,v$ new variables. We construct the tree diagram by starting at the tree top with $z=f(x,y)$. Then draw a first generation branch for each original variable. Following this, draw a second generation branch for each new variable. Finally, compute partial derivatives or derivatives along each branch. 
+
+For instance, top level branches are $\frac{\partial f}{\partial x}$ and $\frac{\partial f}{\partial y}$. The second level branches are $\frac{\partial x}{\partial u}$, $\frac{\partial x}{\partial v}$, $\frac{\partial y}{\partial u}$ and $\frac{\partial y}{\partial v}$. Therefore, $\frac{\partial z}{\partial u}$ is the sum of product of a partial derivative along a first generation and a partial derivative along a second generation starting from $z$ and towards $u$. 
+
+$$\frac{\partial z}{\partial u} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial u}+\frac{\partial f}{\partial y}\frac{\partial y}{\partial u}$$
+
+Likewise for $v$
+
+$$\frac{\partial z}{\partial v} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial v}+\frac{\partial f}{\partial y}\frac{\partial y}{\partial v}$$
+
+
+
+\section{March 2, 2016}
+\subsection{Tree Diagram Examples}
+
+\begin{example}
+Let $w=f(x,y,z) = e^{2x+5y+z}$ where $x=t+\sin(2t-2)$, $y=3-4t$, and $z=3e^{t^2-1}$. Use the chain rule to find $\frac{\mathrm d w}{\mathrm d t}$ at $t=1$.
+\end{example}
+
+We note that $w$ is a function of $x, y, z$, where $x, y, z$ are themselves functions of $t$. Therefore, $w$ is indirectly a function of $t$. That is, $w=w(t)$. We want to find $\frac{\mathrm d w}{\mathrm d t}$.
+Here, the \textbf{original variables} are $x, y, z$. We will draw 3 first generation branches.
+We only have $1$ \textbf{new variable} $t$. We will draw 1 second generation branch from each first generation branch. Now, compute the partial derivatives along the branches.
+
+\begin{align*}
+	\frac{\mathrm d w}{\mathrm d t} &= \frac{\partial f}{\partial x}\frac{\mathrm d x}{\mathrm d t} + \frac{\partial f}{\partial y}\frac{\mathrm d y}{\mathrm d t}+\frac{\partial f}{\partial z}\frac{\mathrm d z}{\mathrm d t} \\
+	&= 2e^{2x+5y+z}\left(1+2\cos(2t-2)\right)+5e^{2x+5y+z}\left(-4\right)+e^{2x+5y+z}\left(3e^{t^2-1}*2t\right)\\
+	&= e^{2x+5y+z}\left(2(1+2\cos(2t-2))-20+6te^{t^2-1}\right)
+\end{align*}
+
+We note that at $t=1$, $x=1$, $y=-1$, and $z=3$ by substitution into their formulas. Substituting these values, we get $$\frac{\mathrm d w}{\mathrm d t}=-8$$
+
+\begin{example}
+Let $z=f(x,y)$ where $x=uv^2$, and $y=\frac{u}{v}$. Find $\frac{\partial z}{\partial u}$ and $\frac{\partial z}{\partial v}$ at $(u,v) = (2, -1)$ given that $f_x(2, -2)=3$, $f_y(2, -2) = -2$, $f_x(2, -1)=-7$, and $f_y(2, -1)=16$.
+\end{example}
+
+We note that we have 2 original variables $x, y$ and 2 new variables $u, v$. We first calculate the partial derivatives to get $\frac{\partial x}{\partial u}=v^2$, $\frac{\partial x}{\partial v}=2uv$, $\frac{\partial y}{\partial u}=\frac{1}{v}$, and $\frac{\partial y}{\partial v}=-\frac{u}{v^2}$. Furthermore, at $(u, v) = (2, -1)$, we get that $x=2$ and $y=-2$ by solving for $x$ and $y$ respectively. We note that by substituting into the formula, we get that 
+
+\begin{align*}
+	\frac{\partial z}{\partial u} &= \frac{\partial f}{\partial x}\frac{\partial x}{\partial u}+\frac{\partial f}{\partial y}\frac{\partial y}{\partial u}\\
+	&=f_x(x,y)\left(v^2\right)+f_y(x,y)\left(\frac{1}{v}\right)\\
+	&=f_x(2,-2)\left((-1)^2\right)+f_y(2,-2)\left(-1\right)\\
+	&= 5
+\end{align*}
+
+\begin{example}
+Let $z=f(x,y)=4\cosh(x)+\cos(y)$ where $x=t+2s$ and $y=\frac{\pi}{2}e^t+s$. Find $\frac{\partial z}{\partial t}$ and $\frac{\partial z}{\partial s}$ at $t=\ln(2)$ and $s=0$.\end{example}
+
+At $t=\ln(2)$ and $s=0$, we get that $x=\ln(2)$ and $y=\pi$. We also note that $\frac{\partial f}{\partial x} = 4\sinh(x)$, and $\frac{\partial f}{\partial y}=-\sin(y)$. Furthermore, after calculation, we can show that $\frac{\partial x}{\partial t}=1$, $\frac{\partial x}{\partial s}=2$, $\frac{\partial y}{\partial t}=\frac{\pi}{2}e^t$, and $\frac{\partial y}{\partial s}=1$. Substituting into the equation, we get
+
+\begin{align*}
+	\frac{\partial z}{\partial s} &= \frac{\partial f}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial s}\\
+	&=4\sinh(x)(2)-\sin(y)(1)\\
+	&= 8\sinh(\ln(2))-\sin(\pi)\\
+	&= 8\left(\frac{1}{2}\left(e^{\ln(2)}-e^{-\ln(2)}\right)\right)-0\\
+	&= 8\left(\frac{1}{2}\left(e^{\ln(2)}-e^{\ln(2^{-1})}\right)\right)\\
+	&= 8\left(\frac{1}{2}\left(2-2^{-1}\right)\right)\\
+	&= 8\left(\frac{1}{2}\left(\frac{3}{2}\right)\right)\\
+	&= 8\left(\frac{3}{4}\right)\\
+	&=6
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{March 4, 2016}
+
+\subsection{Gradient}
+Let $F(x,y,z)$ be a function of three independent variables $x,y,z$.
+\begin{definition}
+The \textbf{gradient} of $F$ at the point $P(x_0, y_0, z_0)$ is denoted by either by $grad F(P)$, or we use $\vec{\nabla} F(P)$.
+
+$$\vec{\nabla} F(P) = (F_x(x_0, y_0, z_0), F_y(x_0, y_0, z_0), F_z(x_0, y_0, z_0))$$
+
+Geometrically, the gradient is a vector orthogonal to surface $S:F(x,y,z) = 0$ at $P$. That is, the gradient is a vector orthogonal to tangent $P$ to the surface $S$ at $P$.
+\end{definition}
+
+\begin{example}
+
+Let $F(x, y, z) = x^3y^2z^4-35$. Find the gradient for point $P=(1, 1, -2)$. 
+\end{example}Finding the partial derivatives, then substituting the point in, we get that $\vec{\nabla}F(P) = (48, 32, -32)$.
+
+\subsection{Equation of a Plane}
+The point-normal form. The equation of a plane passing through the point $P$ that has a normal vector of $\vec{N}$ is given by the following equation given that $\vec{r} = (x, y, z)$.
+
+$$\vec{r} \cdot \vec{N} = \vec{r_0} \cdot \vec{N}$$
+\begin{enumerate}
+	\item The Equation of the Tangent Plane. 
+	$$\vec{r} \cdot \vec{N} = \vec{r_0} \cdot \vec{N}$$
+	where $\vec{N} = grad F(P) = \vec{\nabla}F(P)$
+	\item The Vector Equation of Normal Line. 
+	$$ \vec{r} = \vec{r_0} + t\vec{v}, \quad t \in R$$
+	where $\vec{v}$ is the direction vector $= \vec{\nabla}F(P)$
+\end{enumerate}
+
+
+\begin{example}
+Find the equation of the Tangent Plane and the Normal Line to the surface $xz+yz+xy=-3$ at the point $P=(1, 1, -2)$ on the surface. 
+\end{example}The equation can be re-written so that $f(x, y, z) = xz+yz+xy+3=0$. We need to compute $\vec{\nabla}F(P)$. Finding the partial derivatives, we get that $\vec{\nabla}F(P) = (z+y, z+x, x+y)$. By substituting the initial point $P$, we find the gradient is $(-1, -1, 2)$. This is our normal vector $\vec{N}$. 
+
+The equation of the tangent plane is thus given by $\vec{r} \cdot \vec{N} = \vec{r_0} \cdot \vec{N}$. So, $(x, y, z) \cdot (-1,-1,2) = (1,1,-2) \cdot (-1,-1,2)$. Thus $$x+y-2z=6$$ 
+
+Vector equation of normal line requires initial point and direction vector, which is $(-1,-1,2)$. The equation of normal line is thus given by
+$$(x, y, z) = (1, 1, -2) + t(-1,-1,2), \quad t \in \mathbb R$$
+
+\subsection{Linearization of a Function of Two or Three Variables}
+
+Let $ z = f(x,y)$ be a function of two independent variables $x, y$. Let us find the equation of the tangent plane to the surface $S:z =f(x,y)$. That is, $f(x,y)-z=0$. at the point $P=(x_0, y_0, f(x_0, y_0))$. We need a point and a normal vector (where $\vec{N} = \vec{\nabla}F(P)$). We get that $\vec{N} = \left(f_x(x_0,y_0), f_y(x_0,y_0), -1\right)$. Substituting into the equation for tangent, we get that $$z = f(x_0, y_0) + f_x(x_0, y_0)(x-x_0) + f_y(x_0, y_0)(y-y_0)$$
+
+We call this $z$-coordinate of the equation of the tangent plane above the linearization of $f(x,y)$ at point $P$. It is denoted by $L(x,y)$. 
+It follows that 
+
+$$L(x,y)= f(x_0, y_0) + f_x(x_0, y_0)(x-x_0) + f_y(x_0, y_0)(y-y_0)$$
+
+Thus, we note that $f(x,y) \approx L(x,y)$ for all $(x,y)$ which are close enough to $(x_0,y_0)$. Since there is almost no error, this is justified.
+
+\section{March 7, 2016}
+\subsection{Linearization Examples}
+
+\begin{example}
+Given $f(x,y)$ = $\ln \left(x^2+y^2+xy\right)$, find the linearization of $f$ at point $P=(1,-1)$, and use that to estimate the value of $f(1.05, -1.03) = \ln(1.0819)$.
+\end{example}
+
+We recall that $f(x,y)$ is approximated by $L(x,y)$. For $(x_0, y_0) = (1,-1)$, we have $L(x,y) = f(1,-1) + f_x(1,-1)(x-1) + f_y(1,-1)(y-(-1))$. We also note the following
+
+$$f_x(x,y) = \frac{2x+y}{x^2+y^2+xy}$$
+$$f_y(x,y) = \frac{2y+x}{x^2+y^2+xy}$$
+
+Substituting $(x,y) = (1,-1)$ into the above equations, we get $f(1,-1) = \ln1 = 0$, $f_x(1,-1) = 1$ and $f_y = -1$. Thus
+
+\begin{align*}
+	L(x,y) &= 0 + 1(x-1) +(-1)(y+1)\\
+	&= x-1-y-1\\
+	&=x-y-2
+\end{align*}
+
+We note that since $f(x,y) \approx L(x,y)$, we have $\ln \left(x^2+y^2+xy \right) \approx x-y-2$. For $x=1.05$ and $y=-1.03$, we get
+
+\begin{align*}
+	\ln \left(1.05^2+(-1.03)^2+(1.05)(-1.03)\right) &\approx 1.05-(-1.03)-2\\
+	\ln(1.0819) &\approx 1.05+1.03-2\\
+	\ln (1.0819) &\approx 0.08
+\end{align*}
+
+\begin{remark}
+Let $f(x, y, z)$ be a function of the three independent variables $x, y, z$. Then the linearization of $f$ at the point $P = (x_0,y_0,z_0)$ is given by $$L(x, y, z) = f(x_0, y_0, z_0) + f_x(x_0, y_0, z_0)(x-x_0) + f_y(x_0, y_0, z_0)(y-y_0)+f_z(x_0, y_0, z_0)(z-z_0)$$
+\end{remark}
+
+\subsection{Differentials and Increments}
+
+Let $z=f(x, y)$ be a function of the two independent variables $x, y$. Suppose that the independent variables changed from $x_0$ to $x$ and from $y_0$ to $y$. 
+
+\begin{definition}
+The \textbf{increment}. The change in $x$ (the increment in $x$) is denoted and defined by $\Delta x = x -x_0$.
+The change in $y$ (the increment in $y$) is denoted and defined by $\Delta y = y- y_0$.
+The corresponding change in $z$ is given $\Delta z = z_{final} - z_{initial}$. In other words, $\Delta f = f(x,y)-f(x_0, y_0)$.
+\end{definition}
+
+\begin{remark}
+Note that the quantities $\Delta x, \Delta y, \Delta f$ may be thought of as the error in the measurement of $x$, $y$, and $f$ respectively, given that $\Delta x$ and $\Delta y$ are small.
+\end{remark}
+
+\begin{definition}
+The \textbf{differential}. The differential of $x$ is denoted and defined by $\mathrm d x = \Delta x$.
+The differential of $y$ is denoted and defined by $\mathrm d y = \Delta y$.
+The differential of dependent variable $z$ is denoted and defined by $\mathrm d f = \frac{\partial f}{\partial x} \mathrm d x+ \frac{\partial f}{\partial y} \mathrm d y$. It can be shown that $\Delta f \approx \mathrm d f = f_x(x_0, y_0)\Delta x + f_y(x_0, y_0)\Delta y$ provided that $(x_0, y_0)$ is close to $(x, y)$. 
+\end{definition}
+
+
+
+Let $P$ be a physical quantity and $Q$ be an estimated value of $P$. 
+
+\begin{itemize}
+	\item The \textbf{absolute error} is the absolute value of the difference between the estimated and exact values, $|Q-P|$. 
+	\item The \textbf{relative error} is the error divided by the exact value, $ \frac{\Delta P}{P}$. 
+	\item The \textbf{percentage error} is the relative error multiplied by $100\%$, $ \frac{\Delta P}{P}*100\%$.
+\end{itemize}
+
+
+
+\begin{example}
+Let $z = f(x,y) = x^3y+\sin(x)+e^y$. Find $\mathrm d f$. 
+
+\end{example}By definition, $\mathrm d f = \frac{\partial f}{\partial x} \mathrm d x+ \frac{\partial f}{\partial y} \mathrm d y$. We note that $\frac{\partial f}{\partial x} = 3x^2y + \cos(x)$ and $\frac{\partial f}{\partial y} = x^3 + e^y$. Therefore, $\mathrm d f = \left(3x^2y + \cos(x)\right)\mathrm d x + \left(x^3 + e^y\right)\mathrm d y$.
+
+\begin{example}
+The resistance $R$ of a wire of length $y$ and cross-sectional radius $x$ are related by the formula $Rx^2 = ky$ for some non-zero constant $k$. Use differentials to determine by approximately what percent the resistance $R$ changes if the length of wire $y$ is increased by $1\%$ and the cross-sectional \textbf{diameter} $x$ is decreased by $4\%$. 
+
+\end{example}
+
+We know that $\frac{\Delta y}{y} = 1\%$ and that $\frac{\Delta x}{x} = -4\%$. We want to determine $\frac{\Delta R}{R}$. We know that $R = \frac{ky}{x^2}$. We recall that $\Delta R$ approximates $\mathrm d R$. We get that $\frac{\partial R}{\partial x} = -2kyx^{-3}$ and $\frac{\partial R}{\partial y} = kx^{-2}$. Thus $$\Delta R \approx -2kyx^{-3}\Delta x + kx^{-2}\Delta y$$
+ We divide both sides by $R = kyx^-2$ to get 
+ 
+ \begin{align*}
+ 	\frac{\Delta R}{R} &\approx \frac{-2\Delta x}{ x} + \frac{\Delta y}{y}\\
+	&\approx -2(-4\%) + (1\%) \\
+	&\approx 9\%\\
+\end{align*}
+
+\begin{example}
+Use differentials to determine by approximately what percentage the total surface area of an open rectangle box with a square base changes if the base side length $x$ is changed from $10$ to $10.2$ and its height $y$ is changed from $5$ to $4.75$.
+\end{example}
+
+\section{March 9, 2016}
+\subsection{Example Cont'd}
+
+Given that $S = x^2 + 4xy$, we know that 
+
+$$\Delta x = x-x_0 = 10.2 - 10 = 0.2$$
+$$\Delta y = y - y_0 = 4.75-5=-0.25$$ 
+
+We want to determine $\frac{\Delta S}{S}$. Recall that $\Delta S$ is approximately $\mathrm d S$. Thus, $\Delta S$ approximates $\frac{\partial S}{\partial x}\Delta x + \frac{\partial S}{\partial y}\Delta y$.
+
+$$\Delta S \approx (2x+4y)\Delta x + (4x)\Delta y$$
+Dividing both sides by $S = x^2 + 4xy$, we get
+
+
+\begin{align*}
+	\frac{\Delta S}{S} &\approx \frac{(2x+4y)\Delta x}{x^2 + 4xy} + \frac{4x\Delta y}{x^2 + 4xy}\\
+	&\approx \frac{\left(2(10)+4(5)\right)}{10^2 + 4(10)(5)}\left(0.2\right) + \frac{4(10)}{10^2 + 4(10)(5)}\left(-0.25\right)\\
+	&\approx \frac{40(0.2)}{300}+\frac{40(-0.25)}{300}\\
+	&\approx -0.06
+\end{align*}
+
+Thus, the percentage that the total surface area changes is approximately $-6\%$. 
+
+\subsection{Directional Derivatives}
+
+Let $f(x, y, z)$ be a function of three independent variables $x, y, z$ and let $\vec{u}$ be a unit vector in the direction from a given point $P(x_0, y_0, z_0)$, to an arbitrary point $Q(x, y, z)$. Indeed 
+
+\begin{align*}
+	\vec{u} &= \frac{\vec{PQ}}{\| \vec{PQ}\|}\\
+	&=\frac{(x-x_0, y-y_0, z-z_0)}{s}
+\end{align*}
+
+In other words, 
+
+\begin{align*}
+	(a, b, c)  &= \frac{(x-x_0, y-y_0, z-z_0)}{s}\\
+	s(a, b, c) &=(x-x_0, y-y_0, z-z_0)
+\end{align*}
+
+By equating the components, we conclude that $x = x_0+as$, $y = y_0 + bs$, $z=z_0 + cs$. Similarly, we now have $w = f(x, y, z)$ where $x = x(s) = x_0+as$, $y = y(s) = y_0 + bs$, $z=z(s) = z_0 + cs$. Thus, $w$ is indirectly a function of $s$. 
+
+Let us now use the chain rule to compute $\left.\frac{\mathrm d w}{\mathrm d s}\right|_{s = 0}$. We note that at $s=0$, $x, y$ and $z$ are equal to $x_0, y_0, z_0$ respectively. Thus
+
+\begin{align*}
+	\left.\frac{\mathrm d w}{\mathrm d s}\right|_{s=0} &= f_x(x, y, z)+f_y(x, y, z) + f_z(x, y, z)\\
+	&= f_x(x_0, y_0, z_0) + f_y(x_0, y_0, z_0) + f_z(x_0, y_0, z_0)
+\end{align*}
+
+Recall that $\vec{u} = (a, b, c)$ and that $\vec{\nabla}F(P) = (f_x(x_0, y_0, z_0), f_y(x_0, y_0, z_0) ,f_z(x_0, y_0, z_0))$. Thus, we can express $\left.\frac{\mathrm d w}{\mathrm d x}\right|_{s=0}$ as a dot product. 
+
+\begin{align*}
+	\left.\frac{\mathrm d w}{\mathrm d s}\right|_{s=0} &= (f_x(x_0, y_0, z_0),f_y(x_0, y_0, z_0) , f_z(x_0, y_0, z_0))\cdot (a, b, c)\\
+	&= \vec{\nabla}F(P)\cdot \vec{u}
+\end{align*}
+
+\begin{definition}
+The \textbf{directional derivative} of a function $F$ at a point $P$ in the direction of the unit vector $\vec{u}$ is defined by  $\left.\frac{\mathrm d w}{\mathrm d s}\right|_{s=0}$ and will be denoted by $D_{\vec{u}}F(P)$.
+\end{definition}
+
+We have just shown that $D_{\vec{u}}F(P) = \vec{\nabla}F(P)\cdot \vec{u}$. We observe that $D_{\vec{u}}F(P)$ is the rate of change of the function $F$ at the point $P$ in the direction of the unit vector $\vec{u}$. 
+
+\subsection{Maximum and Minimum Values of the Directional Derivative}
+
+First, we recall that if $\theta$ is the angle between vectors $\vec{a}$ and $\vec{b}$, then $\vec{a} \cdot \vec{b} = \|\vec{a}\|\|\vec{b}\|\cos\theta$. Now, let $\theta$ be the angle between $\vec{\nabla}F(P)$ and $\vec{u}$. Therefore, since $\vec{u}$ is a unit vector 
+
+\begin{align*}
+	D_{\vec{u}}F(P) &= \vec{\nabla}F(P)\cdot \vec{u}\\
+	&= \|\vec{\nabla}F(P)\|\|\vec{u}\|\cos\theta\\
+	&= \|\vec{\nabla}F(P)\|\cos\theta 
+\end{align*}
+
+where $0 \leq \theta \leq 180$. 
+
+\begin{enumerate}
+	\item $\theta = 0$, and the maximum value is $\cos(0) = 1$. Thus, the directional derivative increases most rapidly in the direction of the unit vector $\vec{u} = \frac{\vec{\nabla}F(P)}{\|\vec{\nabla}F(P)\|}$ with the maximum value being $\|\vec{\nabla}F(P)\|$.
+	\item $\theta = 180$, and the minimum value is $\cos(180) = -1$. Thus, the directional derivative decreases most rapidly in the direction of the unit vector $\vec{u} = -\frac{\vec{\nabla}F(P)}{\|\vec{\nabla}F(P)\|}$ with the minimum value being $	D_{\vec{u}}F(P)= \|\vec{\nabla}F(P)\|\cos(180) = - \|\vec{\nabla}F(P)\|$.
+\end{enumerate}
+
+\begin{example}
+Given $f(x,y) = x^2-xy+10y^2$, find the directional derivative at point $P=(6,-1)$ in the direction of the unit vector $\left(\frac{12}{13},-\frac{5}{13}\right)$.
+\end{example}
+
+We recall that $D_{\vec{u}}F(P) = \vec{\nabla}F(P)\cdot \vec{u}$, where 
+
+\begin{align*}
+	\vec{\nabla}F(P) &= \left.(f_x,f_y)\right|_P\\
+	&= \left.(2x-y, -x+20y)\right|_{(6,-1)}\\
+	&= (13, -26)
+\end{align*}
+
+Thus
+
+\begin{align*}
+	D_{\vec{u}}F(P) &= \vec{\nabla}F(P)\cdot \vec{u}\\
+	&= (13, -26) \cdot \left(\frac{12}{13},-\frac{5}{13}\right)\\
+	&= 12 + 10 \\
+	&= 22
+\end{align*}
+
+
+
+\section{March 11, 2016}
+\subsection{Examples Cont'd}
+
+\begin{example}
+Given $f(x,y,z) = x^2 + y^2 + z^2 -xyz$ and $P=(1,1,-1)$, find the directional derivative of $f$ at $P$ and in the direction from $P$ to $Q=(-1,0,1)$. 
+\end{example}
+
+
+We recall that $D_{\vec{u}}F(P) = \vec{\nabla}F(P)\cdot \vec{u}$. Furthermore, we know that $f(x,y,z) = x^2 + y^2 + z^2 -xyz$. Hence
+
+\begin{align*}
+	\vec{\nabla}F(P) &= \left.(f_x,f_y)\right|_P\\
+	&= \left.(2x-yz, 2y-xz, 2z-xy)\right|_{(1, 1, -1)}\\
+	&= (3, 3, -3)
+\end{align*}
+
+Now, $\overrightarrow{PQ} = (-2, -1, 2)$, and so the unit vector in the same direction is $\vec{u} = \left(-\frac{2}{3}, -\frac{1}{3}, \frac{2}{3}\right)$. Thus
+
+
+\begin{align*}
+	D_{\vec{u}}F(P) &= \vec{\nabla}F(P)\cdot \vec{u}\\
+	&= (3, 3, -3) \cdot \left(-\frac{2}{3}, -\frac{1}{3}, \frac{2}{3}\right)\\
+	&= -2-1-2\\
+	&= -5
+\end{align*}
+
+\begin{example}
+Given $f(x,y,z) = z^2-2x^3-3y+4$ and $P=(1,-1,3)$, find the unit vector in the direction in which $f$ increases most rapidly and determine the rate of change in that direction. Then, find the unit vector in the direction in which the rate of change of $f$ at $P$ is a minimum and give this minimum value. Lastly, is there a direction in which the rate of change of $f$ at $P$ is equal to $-10$?
+\end{example}
+
+For maximum and minimum rates of change, we only need to compute $\vec{\nabla}F(P)$ and $\|\vec{\nabla}F(P)\|$. Here, $f(x,y,z) = z^2 -2x^3-3y+4$, so 
+
+\begin{align*}
+	\vec{\nabla}F(P) &= \left.(f_x,f_y)\right|_P\\
+	&= \left.(-6x^2, -3, 2z)\right|_{(1, -1, 3)}\\
+	&= (-6, -3, 6)
+\end{align*}
+
+Similarly, we find that $\|\vec{\nabla}F(P)\| = 9$. 
+
+We recall that $f$ increases most rapidly in the direction of the unit vector $\vec{u} = \frac{\vec{\nabla}F(P)}{\|\vec{\nabla}F(P)\|} = \frac{(-6,-3,6)}{9}$ with the maximum rate of change in that direction being $\|\vec{\nabla}F(P)\| = 9$. 
+
+Likewise, $f$ decreases most rapidly in the direction of the unit vector $\vec{u} = -\frac{\vec{\nabla}F(P)}{\|\vec{\nabla}F(P)\|} = \frac{(6,3,-6)}{9}$ with the minimum rate of change in that direction being $-\|\vec{\nabla}F(P)\| = -9$.
+
+Now, we note that it is not possible to find a direction in which the rate of change of $f$ at $P$ is equal to $-10$, since the rate of change is between $-9$ and $9$. 
+
+\subsection{Jacobian Determinant}
+
+\begin{definition}
+The \textbf{Jacobian Determinant} (or simply the Jacobian) of the two functions $F$ and $G$ with respect to the two variables $x$ and $y$ is denoted and defined by 
+
+$$\frac{\partial (F,G)}{\partial (x,y)} = 
+	\begin{vmatrix}
+		\frac{\partial F}{\partial x} & \frac{\partial F}{\partial y} \\
+		\frac{\partial G}{\partial x} & \frac{\partial G}{\partial y} \\
+	\end{vmatrix} = \frac{\partial F}{\partial x}*\frac{\partial G}{\partial y}-\frac{\partial F}{\partial y}*\frac{\partial G}{\partial x}
+$$
+\end{definition}
+
+Likewise, the Jacobian determinant of the three functions $F,G,H$ with respect to the variables $u,v,w$ is denoted and defined by 
+
+$$\frac{\partial (F,G,H)}{\partial (u,v,w)} = 
+	\begin{vmatrix}
+		\frac{\partial F}{\partial u} & \frac{\partial F}{\partial v} & -\frac{\partial F}{\partial w}\\
+		\frac{\partial G}{\partial u} & \frac{\partial G}{\partial v} & \frac{\partial G}{\partial w}\\
+		\frac{\partial H}{\partial u} & \frac{\partial H}{\partial v} & \frac{\partial H}{\partial w}\\
+		
+	\end{vmatrix} $$
+
+\begin{example}
+Let $F=r\cos(\theta)-x$ and $G= r\sin(\theta)-y$. Find $\frac{\partial (F,G)}{\partial (r, \theta)}$. \end{example}
+
+We recall that $\frac{\partial (F,G)}{\partial (r, \theta)} = \frac{\partial F}{\partial r}*\frac{\partial G}{\partial \theta}-\frac{\partial F}{\partial \theta}*\frac{\partial G}{\partial r} $. We note that in this case, $\frac{\partial F}{\partial r} = \cos\theta$, $\frac{\partial F}{\partial \theta} = -r\sin\theta$, $\frac{\partial G}{\partial r} = \sin\theta$ and $\frac{\partial G}{\partial \theta} = r\cos\theta$. Thus
+
+\begin{align*}
+	\frac{\partial (F,G)}{\partial (r, \theta)} &= \frac{\partial F}{\partial r}*\frac{\partial G}{\partial \theta}-\frac{\partial F}{\partial \theta}*\frac{\partial G}{\partial r} \\
+	&= (\cos\theta)(r\cos\theta) - (-r\sin\theta)(\sin\theta) \\
+	&= r\cos^2\theta + r\sin^2\theta \\
+	&= r\left(\cos^2\theta + sin^2 \theta \right )\\
+	&= r
+\end{align*}
+
+\begin{example}
+Let $F=\rho\cos\theta\sin\phi$, $G=\rho\sin\theta\sin\phi$ and $H = \rho\cos\phi$. Find the Jacobian $\frac{\partial (F,G,H)}{\partial (\rho, \phi, \theta)}$ at $\rho = 2$, $\theta = 0$ and $\phi = \frac{\pi}{2}$. 
+\end{example}
+
+We recall that 
+
+\begin{align*}
+\frac{\partial (F,G,H)}{\partial (\rho, \phi, \theta)} &= 
+	\begin{vmatrix}
+		\frac{\partial F}{\partial \rho} & \frac{\partial F}{\partial \phi} & \frac{\partial F}{\partial \theta}\\
+		\frac{\partial G}{\partial \rho} & \frac{\partial G}{\partial \phi} & \frac{\partial G}{\partial \theta}\\
+		\frac{\partial H}{\partial \rho} & \frac{\partial H}{\partial\phi} & \frac{\partial H}{\partial \theta}\\
+	\end{vmatrix} \\
+	&=\begin{vmatrix}
+		\cos\theta\sin\phi & \rho\cos\theta\cos\phi & \rho\sin\theta\sin\phi\\
+		\sin\theta\sin\phi & \rho\sin\theta\cos\phi & \rho\cos\theta\sin\phi\\
+		\cos\phi & -\rho\sin\phi & 0\\
+	\end{vmatrix} \\
+\end{align*}
+
+We recall that $\cos(0) = 1$, $\sin(0) = 0$, $\cos(\frac{\pi}{2}) = 0$ and $\sin(\frac{\pi}{2}) = 1$. Thus, for $\rho = 2$, $\theta = 0$ and $\phi = \frac{\pi}{2}$, we obtain
+
+\begin{align*}
+\frac{\partial (F,G,H)}{\partial (\rho, \phi, \theta)} &= 
+	\begin{vmatrix}
+		1 & 0 & 0\\
+		0 & 0 & 2\\
+		0 & -2 & 0\\
+	\end{vmatrix}\\
+	&= \begin{vmatrix}
+		0 & 2\\
+		-2 & 0\\
+	\end{vmatrix}\\
+	&= 4
+\end{align*}
+
+\section{March 14, 2016}
+\subsection{Implicit Differentiation Notation}
+
+Given a non linear system of $m$ equations in $n$ variables, then under certain conditions, we may be able to solve for $m$ variables as functions of the remaining $n-m \geq 0 $ variables.
+
+For instance, consider a system of one equation in three variables, $F(x,y,z) = 0$. This system can be solved in three different ways. We can solve for $x$ as a function of $y$ and $z$, written as $x=x(y,z)$. Alternatively, we may solve $y=y(x,z)$ and $z=(x,y)$. 
+
+Given a system of two equations in five variables, $F(x, y, z, u, v) = 0$ and $G(x, y, z, u, v) = 0$, we can solve for two variables as a function of the remaining three $(5-2=3)$. There are $\binom{5}{2} = 10$ possibilities.
+
+\begin{enumerate}
+	\item $x = x(z, u, v)$ and $y = y(z, u, v)$.
+	\item $x = x(y, u, v)$ and $z = z(y, u, v)$.
+	\item $x = x(y, z, v)$ and $u = u(y,z, v)$.
+	\item $x = x(y, z, u)$ and $v = v(y, z, u)$.
+	\item $y = y(x, u, v)$ and $z = z(x, u, v)$.
+	\item $y = y(x,z, v)$ and $u = u(x,z, v)$.
+	\item $y = y(x, z, u)$ and $v=v(x, z, u)$.
+	\item $z = z(x, y, v)$ and $u = u(x, y, v)$.
+	\item $z = z(x, y, u)$ and $v = v(x, y, u)$.
+	\item $u = u(x, y, z)$ and $v = v(x, y, z)$.
+\end{enumerate}
+
+Suppose we are told to compute the partial derivative $\frac{\partial u}{\partial z}$. Then which $u$ will we choose? $u = u(y, z, v)$, $u = u (x, z, v)$ and $u = u(x, y, z)$ are all possibilities. To avoid confusion, we shall write $\left(\frac{\partial u}{\partial z}\right)_{x,y}$ to indicate that we use $u = u(x, y, z)$. 
+
+\subsection{Implicit Differentiation Formula}
+
+Consider the system of one equation $F(x,y,z) = 0$. We assume that the equation can be solved for $y$ as a function of the remaining $x$ and $z$. That is, $y = y(x,z)$. We want to compute $\frac{\partial y}{\partial x}$ and $\frac{\partial y}{\partial z}$, or $\left(\frac{\partial y}{\partial x}\right)_z$ and $\left(\frac{\partial y}{\partial z}\right)_x$ respectively.
+
+By employing the chain rule, we find that $\frac{\partial w}{\partial x} = F_x+F_y\frac{\partial y}{\partial x}$. Since $w=0$, we get that $F_y \frac{\partial y}{\partial x} = -F_x$. Thus
+
+$$\frac{\partial y}{\partial x} = - \frac{F_x}{F_y} $$
+
+where $F_y$ or $\left(\frac{\partial F}{\partial y}\right) \neq 0$. Similarly
+
+$$\frac{\partial y}{\partial z} = - \frac{F_z}{F_y}$$
+
+\begin{remark}
+If $F(x,y) = 0$, this means that $y=y(x)$. Then $\frac{\mathrm d y}{\mathrm d x} = -\frac{F_x}{F_y}$, where $F_y \neq 0$.
+\end{remark}
+
+\begin{example}
+Given $x^3y^2 +x\sin(y) + y^3e^x=5$, find $\frac{\mathrm d y}{\mathrm d x}$. 
+\end{example}
+
+We first rewrite the equation in the form where one side is zero, $F(x,y)=0$. The equation becomes $x^3y^2+ x\sin(y) + y^3e^x-5=0$. Since $\frac{\mathrm d y}{\mathrm d x} = -\frac{F_x}{F_y}$, we get $$-\frac{3x^2y^2+\sin(y)+y^3e^x}{2x^3y+x\cos(y)+3y^2e^x}$$
+
+\begin{example}
+Given $\ln\left(x^6z^8\right)-14y(x-1)+8xz+y^3z=0$, find $\left(\frac{\partial y}{\partial z}\right)_x$ at the point $(x,z) = (1,1)$. 
+\end{example}
+
+We first note that $\left(\frac{\partial y}{\partial z}\right)_x$ means that the system is to be solved for $y$ as a function of $x$ and $z$, so $y=y(x,z)$.  We now simplify the logarithm term to get $F=6\ln x+8\ln z-14y(x-1)+8xz+y^3z$. 
+
+\begin{align*}
+	\frac{\mathrm d y}{\mathrm d z} &= -\frac{F_z}{F_y}\\
+	&= - \frac{\frac{8}{z} +8x+y^3}{-14(x-1)+3y^2z}
+\end{align*}
+
+Evaluating $F$ at $x=1$ and $z=1$, we get $\ln(1) -14y(1-1)+8(1)(1)+(y^3)(1) = 0$. Solving for $y$, we get $y=-2$. Substituting these values of $x,y,z$ into $\frac{\partial y}{\partial z}$, we find that it is equal to $-\frac{2}{3}$.
+
+\subsection{Implicit Formula for a System of Two Equations}
+
+Given a system of equations $F(x,y,u,v)=0$ and $G(x, y, u, v)=0$, under certain conditions, we may be able to solve for $u$ and $v$ as functions of $x$ and $y$. That is, $u=u(x,y)$ and $v=v(x,y)$. We need to compute $\frac{\partial u}{\partial x}$, $\frac{\partial u}{\partial y}$, $\frac{\partial v}{\partial x}$ and $\frac{\partial v}{\partial y}$. By using the chain rule, we can find that 
+
+$$\frac{\partial F}{\partial u}*\frac{\partial u}{\partial x}+\frac{\partial F}{\partial v}*\frac{\partial v}{\partial x} = - \frac{\partial F}{\partial x}$$
+
+$$\frac{\partial G}{\partial u}*\frac{\partial u}{\partial x}+\frac{\partial G}{\partial v}*\frac{\partial v}{\partial x} = - \frac{\partial G}{\partial x}$$
+
+Hence by solving the systems, we can find that 
+
+$$\frac{\partial u}{\partial x} = -
+	\frac{\begin{vmatrix}
+		\frac{\partial F}{\partial x} & \frac{\partial F}{\partial v}\\
+		\frac{\partial G}{\partial x} & \frac{\partial G}{\partial v}\\
+	\end{vmatrix}}{
+	\begin{vmatrix}
+		\frac{\partial F}{\partial u} & \frac{\partial F}{\partial v}\\
+		\frac{\partial G}{\partial u} & \frac{\partial G}{\partial v}\\
+	\end{vmatrix}}
+	$$
+	
+	$$\frac{\partial v}{\partial x} = -
+	\frac{\begin{vmatrix}
+		F_x & F_u\\
+		G_x & G_u
+		\end{vmatrix}}{
+	\begin{vmatrix}
+		F_u & F_v\\
+		G_u & G_v
+		\end{vmatrix}}
+	$$
+	
+	In other words, using Jacobian notation
+	
+	$$\frac{\partial u}{\partial x} = -\frac{\frac{\partial (F,G)}{\partial (x,v)}}{\frac{\partial (F,G)}{\partial (u,v)}}$$
+	$$\frac{\partial v}{\partial x} = -\frac{\frac{\partial (F,G)}{\partial (u,x)}}{\frac{\partial (F,G)}{\partial (u,v)}}$$
+	
+\section{March 16, 2016}
+\subsection{Implicit Differentiation Examples}
+
+\begin{example}
+Given the system $w=x^2y^2+yz-z^3$ and $x^2+y^2+z^2=11$, find $\left(\frac{\partial w}{\partial y}\right)_z$ at the point $P$ where $(x, y, z, w) = (-3, -1, 1, 11)$. 
+\end{example}
+
+We will rewrite the equations so that the right hand side is 0. Thus
+
+$$F = x^2y^2+yz-z^3-w=0$$
+$$G = x^2+y^2+z^2-11=0$$
+
+In this case, $y$ and $z$ are the independent variables, whereas $w$ and $x$ are the dependent variables. Using the point $(-3, -1, 1, 11)$, we get
+
+\begin{align*}
+\frac{\partial (F,G)}{\partial (w, x)} &= \begin{vmatrix}
+		F_w & F_x\\
+		G_w & G_x
+		\end{vmatrix}\\
+		&= \begin{vmatrix}
+		-1 & 2xy^2\\
+		0 & 2x
+		\end{vmatrix}\\
+		&= \begin{vmatrix}
+		-1 & -6\\
+		0 & -6
+		\end{vmatrix}\\
+	&= 6
+\end{align*}
+
+We note that since $6 \neq 0$, this is solvable for $w$ and $x$ as functions of $y$ and $ z$. 
+
+\begin{align*}
+\frac{\partial (F,G)}{\partial (y, x)} &= \begin{vmatrix}
+		F_y & F_x\\
+		G_y & G_x
+		\end{vmatrix}\\
+		&= \begin{vmatrix}
+		2x^2y+z & 2xy^2\\
+		2y & 2x
+		\end{vmatrix}\\
+		&= \begin{vmatrix}
+		-17 & -6\\
+		-2 & -6
+		\end{vmatrix}\\
+	&= 90
+\end{align*}
+
+Since $\left(\frac{\partial w}{\partial y}\right)_z = -\frac{\frac{\partial (F,G)}{\partial (y,x)}}{\frac{\partial (F,G)}{\partial (w,x)}}$, we obtain a result of $-\frac{90}{6} = -15$.
+
+
+\begin{example}
+Given $xy^2+xyz+yv^2=3$ and $xyz+2xv-u^2v^2=2$, show that the system can be solved for $u$ and $v$ as functions of $x, y, z$ near the point $P$ where $(x, y, z, u, v) = (1, 1, 1, 1, 1)$. Hence, find $\frac{\partial u}{\partial y}$. 
+\end{example}
+
+We note that $$F=xy^2+xyz+yv^2-3$$
+$$G = xyz+2xv-u^2v^2-2$$
+
+We recall that it is solvable for $u,v$ if $\frac{\partial (F,G)}{\partial (u, v)} \neq 0$.
+
+\begin{align*}
+\frac{\partial (F,G)}{\partial (u, v)} &= \begin{vmatrix}
+		F_u & F_v\\
+		G_u & G_v
+		\end{vmatrix}\\
+		&= \begin{vmatrix}
+		0 & 2yv\\
+		-2uv^2 & 2x-2u^2v
+		\end{vmatrix}\\
+		&= \begin{vmatrix}
+		0 & 2\\
+		-2 & 0
+		\end{vmatrix}\\
+	&= 4 \neq 0
+\end{align*}
+
+It is therefore solvable. We now solve for $\frac{\partial (F,G)}{\partial (y, v)}$.
+
+\begin{align*}
+\frac{\partial (F,G)}{\partial (y, v)} &= \begin{vmatrix}
+		F_y & F_v\\
+		G_y & G_v
+		\end{vmatrix}\\
+		&= \begin{vmatrix}
+		2xy+xz+v^2 & 2yv\\
+		xz & 2x-2u^2v
+		\end{vmatrix}\\
+		&= \begin{vmatrix}
+		4 & 2\\
+		1 & 0
+		\end{vmatrix}\\
+	&= -2
+\end{align*}
+
+Hence $$\frac{\partial u}{\partial y} = -\frac{\frac{\partial (F,G)}{\partial (y, v)}}{\frac{\partial (F,G)}{\partial (u, v)}} = -\frac{-2}{4} = \frac{1}{2}$$
+
+
+
+\subsection{Double and Triple integrals}
+
+\begin{definition}
+Let $f(x,y)$ be a function of the two independent variables $x, y$ and let $D$ be a closed region in the $xy$-plane as shown. The \textbf{double integral} of $f$ over the region $D$ is denoted and defined by $$\iint\limits_Df(x,y)\mathrm d A$$
+
+We note that $\mathrm d A = \mathrm d x \mathrm d y = \mathrm d y \mathrm d x$.
+\end{definition}
+
+\begin{definition}
+Let $f(x, y, z)$ be a function of the three independent variables $x, y, z$ and let $E$ be a closed region in $\mathbb R^3$ as shown. The \textbf{triple integral} of $f$ over the region $E$ is denoted and defined by $$\iiint \limits_Ef(x, y, z) \mathrm d V$$
+
+We note that $\mathrm d V = \mathrm d x \mathrm d z \mathrm d y = \mathrm d y \mathrm d x \mathrm d z ...$ for all of the six possibilities.
+\end{definition}
+
+\section{March 18, 2016}
+\subsection{Types of Regions in a Plane}
+
+\begin{enumerate}
+	\item A region $D$ in $\mathbb R^2$ is \textbf{y-simple} if it is bounded from bottom to top by the continuous curves $y=g(x)$ and $y=h(x)$ respectively and bounded from left and right by the vertical lines $x=a$ and $x=b$ respectively. It is clear that a y-simple region may be sliced vertically and hence, may be described by a pair of inequalities
+	
+	$$D = \begin{cases}
+		g(x) \leq y \leq h(x) \\
+		a \leq x \leq b
+	\end{cases}$$
+	\item A region $D$ in $\mathbb R^2$ is \textbf{x-simple} if it is bounded from left and right by the continuous curves $x=p(y)$ and $x=q(y)$ respectively and bounded from bottom to top by the horizontal lines $y=c$ and $y=d$ respectively. It is clear that an x-simple region may be sliced horizontally and hence, may be described by a pair of inequalities
+	
+	$$D = \begin{cases}
+		p(y) \leq x \leq q(y) \\
+		c \leq y \leq d
+	\end{cases}$$
+	
+\end{enumerate}
+
+\begin{remark}
+Some regions in $\mathbb R^2$ are both x and y simple, for instance in the case of a rectangular region.
+$$D = \begin{cases}
+		a \leq x \leq b \\
+		c \leq y \leq d
+	\end{cases}$$
+	
+	Some triangular regions and regions enclosed by parabolas may also be both y-simple and x-simple. For instance, the region enclosed by the parabolas $y=x^2$ and $x=y^2$ may be interpreted as y-simple
+	$$D = \begin{cases}
+		x^2 \leq y \leq \sqrt{x} \\
+		0 \leq x \leq 1
+	\end{cases}$$
+	or as x-simple
+	$$D = \begin{cases}
+		y^2 \leq x \leq \sqrt{y} \\
+		0 \leq y \leq 1
+	\end{cases}$$
+\end{remark}
+
+\subsection{Types of Regions in $\mathbb R^3$}
+
+We shall describe the \textbf{z-simple} region. The \textbf{x-simple} and \textbf{y-simple} regions are described similarly. A region $E$ in $\mathbb R^3$ is said to be \textbf{z-simple} if it is bounded from bottom to top by the continuous surface $z=g(x, y)$ and $z= h(x,y)$ respectively as shown. We note that 
+
+\begin{itemize}
+	\item $\Gamma$ is the curve of intersection of the surfaces.
+	\item $C$ is the orthogonal projection of $\Gamma$ onto the $xy$-plane.
+	\item $D$ is the region enclosed by the curve $C$.
+\end{itemize}
+
+Clearly, a z-simple region may be sliced vertically and hence may be described by 
+
+$$E = \begin{cases}
+		g(x, y) \leq z \leq h(x, y) \\
+		(x, y) \in B
+	\end{cases}$$
+
+where $B$ may be thought of as the base of the solid enclosed by the two surfaces. 
+
+\begin{remark}
+Some regions in $\mathbb R^2$ are neither x nor y simple. In such cases, we may divide the region into non-overlapping sub-regions each of which is either x-simple or y-simple. Thus $D$ is the union of all the subregions $D_1$, $D_2$, ...
+\end{remark}
+
+\begin{remark}
+If $D$ is subdivided into $n$ non-overlapping regions $D_1$, $D_2$, ...$D_n$, then
+
+$$\iint \limits_D f(x,y) \mathrm d A = \iint \limits_{D_1} f(x,y) \mathrm d A + \iint \limits_{D_2} f(x,y) \mathrm d A+ ... +\iint \limits_{D_n} f(x,y) \mathrm d A$$
+\end{remark}
+
+\section{March 21, 2016}
+\subsection{Definite Partial Integrasl}
+
+\begin{definition}
+A \textbf{definite partial integral} with respect to $x$ is of the form $$\int\limits_{x=g(y,z)}^{x=h(y,z)}f(x, y, z) \mathrm d x$$
+or
+$$\int\limits_{g(y,z)}^{h(y,z)}f(x, y, z) \mathrm d x$$
+
+\end{definition}
+
+
+
+
+
+To compute the partial integral, we simply integrate $f$ with respect to $x$ while holding both $y$ and $z$ constant. The partial integrals with respect to $y$ and $z$ are defined similarly. 
+
+\begin{definition}
+An \textbf{iterated integral} consists of two or more partial integrals. For instance
+$$\int_{x=a}^{x=b} \left\{\int_{x=g(y)}^{x=h(y)} f(x,y) \mathrm d x\right\}\mathrm d x$$
+\end{definition}
+
+Note that it consists of two partial integrals. To compute, begin with the innermost integral ending with the outermost integral. 
+
+\begin{example}
+Evaluate $$\int \limits_{0}^{1} \left\{\int\limits_{0}^{x^2} \left(28xy+42y^2\right) \mathrm d y\right\}\mathrm d x$$
+\end{example}
+
+We first evaluate the innermost expression to get $\left.14\left(xy^2+y^3\right) \right|_{y=0}^{y=x^2}$. This evaluates to $14\left(x^5+x^6\right)$. The expression then becomes $\int_0^1 14\left(x^5+x^6\right)\mathrm d x$. This evaluates to $\left.14\left(\frac{1}{6}x^6+\frac{1}{7}x^7\right)\right|_0^1$. Thus, the solution is $\frac{13}{3}$. 
+
+\subsection{Setting Up Limits for a Double Integral}
+
+Given the double integral $$\iint\limits_Df(x,y) \mathrm d A$$ where $\mathrm d A = \mathrm d x \mathrm d y$ or $\mathrm d y \mathrm d x$. If the region $ D$ is a y-simple graph, we slice vertically and hence integrate with respect to $y$ first. That is, we write $\mathrm d A = \mathrm d y \mathrm d x$. The double integral is then equivalent to the iterated integral of the form
+
+$$\int_{x=a}^{x=b}\left\{\int_{y=g(x)}^{y=h(x)} f(x,y) \mathrm d y \right\}\mathrm d x$$
+
+For an x-simple equation, we slice horizontally, and hence integrate with respect to $x$ first. That is, we write $\mathrm d A = \mathrm d x \mathrm d y$. It follows that the double integral is equivalent to 
+
+$$\int_{y=c}^{y=d}\left\{\int_{x=p(y)}^{x=q(y)} f(x,y) \mathrm d x \right\}\mathrm d y$$
+
+
+\subsection{Setting Up Limits for a Triple Integral}
+Given a triple integral $$\iiint\limits_E f(x, y, z)\mathrm d V$$ where $\mathrm d V$ is one of the six different possibilities, we assume that $E$ is a z-simple region (discussion for x-simple or y-simple are identical). Recall that for a z-simple region, we slice vertically and hence we integrate with respect to $z$ first. That is, we write $\mathrm d V = \mathrm d z \mathrm d A$. It follows that the triple integral is equivalent to 
+
+$$\iint \limits_B \left\{\int\limits_{z=g(x, y)}^{z=h(x,y)} f(x, y, z) \mathrm d z\right\}\mathrm d A$$
+
+\begin{remark}
+Once the innermost integral is evaluated, the triple integral reduces to a double integral which may be solved as shown above.
+\end{remark}
+
+\begin{remark}
+The innermost limits of a double integral can be functions of one variable, while the outermost limits must be constant real numbers. The innermost limits of a triple integral can be functions of two variables, the middle limits can be functions of one variable, and the outermost limits must be a constant real numbers. 
+\end{remark}
+
+\subsection{Geometric Interpretation of a Double Integral}
+
+Consider the double integral $$\iint\limits_Df(x,y) \mathrm d A$$ For simplicity, we shall assume $f(x, y) \geq 0$ for $(x, y) \in  D$. Let $V$ be the volume of a solid which lies below the surface $z = f(x,y)$ and above the planar region $ B$. We note that the element of volume $\mathrm d V$ is equal to the area of the base multiplied by the height. Thus, $\mathrm d V = f(x,y)*\mathrm d A $. Therefore $$V = \iint\limits_Bf(x,y) \mathrm d A$$
+
+We can consider $f(x,y)$ as the height and $ B$ as the base. Therefore
+
+$$V = \iint\limits_{Base}(Height) \mathrm d A$$
+\begin{remark}
+In general, we note that $$\iint\limits_Bf(x,y) \mathrm d A$$ is the signed volume.
+\end{remark}
+
+\begin{remark}We note that in the special case, if $f(x, y) = 1$, we obtain $$\iint\limits_B1*\mathrm d A = \iint \limits_B \mathrm d A$$
+\end{remark}
+
+\section{March 23, 2016}
+
+\subsection{Geometric Interpretation of a Triple Integral}
+The triple integral $$\iiint\limits_E f(x, y, z)\mathrm d V$$  measures the volume (or content) in four-dimensional space.
+
+\begin{remark}
+We note that in the special case, if $f(x, y, z) = 1$, we obtain $$\iiint\limits_E 1*\mathrm d V = \iiint\limits_E \mathrm d V$$which is the volume of region $E$. 
+
+\end{remark}
+
+
+
+\begin{remark}
+Thus, one may compute volume by means of a double or triple integral.
+\end{remark}
+
+
+\begin{example}
+Evaluate $$\iint\limits_R e^{y^2}\mathrm d A$$ where $R$ is the triangular region with vertices $(0,0)$, $(0,1)$ and $(2,1)$. 
+\end{example}
+
+First, we sketch the region $R$ to determine the type (x simple or y simple). If it is both, we make a suitable choice. Once we have the graph, we note that the lines joining the points are $y=1$, $x=0$ and $x=2y$. We now determine whether it is easier to integrate with respect to $x$ first, or $y$ first. Indeed, we note that at present $\int e^{y^2} \mathrm d y$ cannot be computed. Therefore, we view it as x-simple. Hence, $\mathrm d A = \mathrm d x \mathrm d y$. Thus, we get
+
+\begin{align*}
+I 	&= \int\limits_{y=0}^{y=1}e^{y^2}\left\{\int\limits_{x=0}^{x=2y}\mathrm d x\right\}\mathrm d y\\
+	&= \int_0^1\left(e^{y^2}2y\right)\mathrm d y
+\end{align*}
+
+We solve by substitution $t=y^2$, so $\mathrm d t = 2y \mathrm d y$.
+
+\begin{align*}
+	I &= \int_0^1e^t\mathrm d t\\
+	&= \left.e^{y^2}\right|_{y=0}^{y=1}\\
+	&= e^1 - e^0\\
+	&= e-1
+\end{align*}
+
+\begin{example}
+Evaluate $$\iiint\limits_{E} 15x^2 \mathrm d V$$ where $ E$ is the region in $\mathbb R^3$ described by $0 \leq x \leq 2-y-z$, $0\leq y\leq 2$, $0\leq z \leq 2-y$.
+\end{example}
+
+
+First, we observe that since region $E$ is described, there is no need to sketch. Recall that for a triple integral, the innermost limits can be functions of two variables, the middle limits can be functions of one variable, and the outermost limits must be constant real numbers. Therefore, the order of integration is $x$, $z$, then $y$ in that order. Thus $\mathrm d V = \mathrm d x \mathrm d z \mathrm d y$. Therefore
+
+\begin{align*}
+	I& = \int\limits_{y=0}^{y=2} \left\{\int\limits_{z=0}^{z=2-y} \left\{\int\limits_{x=0}^{x=2-y-z}15x^2 \mathrm d x\right\}\mathrm d z \right\}\mathrm d y\\
+	&= \int_{0}^{2} \left\{\int_{0}^{2-y} \left.5x^3\right|_{x=0}^{x=2-y-z} \mathrm d z \right\}\mathrm d y\\
+	&= 5\int_{0}^{2} \left\{\int_{0}^{2-y} (2-y-z)^3 \mathrm d z \right\}\mathrm d y\\
+	&= 5\int_{0}^{2} \left.-\frac{(2-y-z)^4}{4}\right|_{z=0}^{z=2-y} \mathrm d y\\
+	&= \frac{5}{4} \int_0^2(2-y)^4\mathrm d y\\
+	&= -\frac{1}{4} \left.(2-y)^5\right|_{y=0}^{y=2}\\
+	&= \frac{1}{4}*2^5\\
+	&= 2^3\\
+	&= 8
+\end{align*}
+
+
+Evaluating, we get that the result is 8.
+
+\begin{example}
+Evaluate the integral of $$\int_0^4 \int_{\sqrt y}^2 \frac{1}{\sqrt{1+x^3}} \mathrm d x \mathrm d y$$
+\end{example}
+
+We first reverse the order of integration. We note that this can be written as $$\iint\limits_R \frac{1}{\sqrt{1+x^3}} \mathrm d A$$ where R is the region in the $xy$-plane enclosed by $x = \sqrt y$ and $x = 2$ from $y = 0$ to $y = 4$. We now treat the region as y simple. 
+
+\begin{align*}
+I &= \int_0^2  \frac{1}{\sqrt{1+x^3}} \left\{\int_0^{x^2} \mathrm d y \right\}\mathrm d x\\
+&= \int_0^2 \frac{x^2}{\sqrt{1+x^3}}\mathrm d x\\
+\end{align*}
+
+Let $t$ = $x^3+1$, so $\mathrm d t = 3x^2 \mathrm d x$. The integral becomes
+
+\begin{align*}
+I &= \frac{1}{3}\int_1^9\frac{1}{\sqrt{t}}\mathrm d t\\
+&= \frac{1}{3}\left.2\sqrt{t}\right|_1^9\\
+&= 2-\frac{2}{3}\\
+&= \frac{4}{3}
+\end{align*}
+
+
+\section{March 28, 2016}
+\subsection{Examples Cont'd}
+\begin{example}
+
+Use double integrals to find the volume of the solid which lies below the surface $z=1+x^2$ and above the region in the $xy$-plane enclosed by the lines $y=x$, $y=-x$ and $y=1$. 
+\end{example}
+
+Recall that $$V = \iint\limits_{Base} (Height)\mathrm d A$$
+Here, we have a triangular region in the $xy$-plane as shown. The height is $z_{top}-z_{bottom}$. In this case, $z_{top} = 1+x^2$ while $z_{bottom} = 0$ ($xy$-plane). Given the information presented, we treat this as an x-simple region with 
+$$B = \begin{cases}
+-y \leq x \leq y\\
+0 \leq y \leq 1
+\end{cases}$$
+
+With the height being $1+x^2$, we now have 
+
+\begin{align*}
+	V &= \int_0^1 \int_{-y}^y \left(1+x^2\right)\mathrm d x \mathrm d y\\
+	&= \int_0^1 \left.x+\frac{x^3}{3}\right|_{-y}^y\mathrm d y\\
+	&= \int_0^1 2y+\frac{2y^3}{3} \mathrm d y\\
+	&= \left.y^2+\frac{y^4}{6}\right|_0^1\\
+	&= 1 + \frac{1}{6}\\
+	&= \frac{7}{6}
+\end{align*}
+
+\begin{example}
+Evaluate 
+
+$$\iint\limits_R\mathrm d A$$ where $R$ is the region in the $xy$-plane enclosed by the curve $(2x-1)^2+(2y+3)^2=16$. 
+\end{example}
+
+We first observe that we can rewrite this as $\left(x-\frac{1}{2}\right)^2+\left(y+\frac{3}{2}\right)^2=4$. This is the equation of a circle centered at $\left(\frac{1}{2}, -\frac{3}{2}\right)$ which has a radius of $2$. We now observe that 
+
+\begin{align*}
+\iint\limits_R\mathrm d A &= A\\
+&= \pi r^2\\
+&= \pi (2)^2\\
+&= 4\pi
+\end{align*}
+
+\begin{example}
+Express the iterated integral 
+$$\int_0^1\int_{z^2}^1\int_0^{1-y}g(x, y, z) \mathrm d x \mathrm d y \mathrm d z$$ as an equivalent integral in which the $y$ integration is performed first, $z$ integration is performed second, and $x$ integration is performed last.
+\end{example}
+
+We note that the integral will be of the form $$\iiint\limits_Eg(x, y, z) \mathrm d V$$The requested order is $\mathrm d V = \mathrm d y \mathrm d z \mathrm d x$. We recall that the innermost limit $y$ can be functions of $x$ and $z$, the middle limit $z$ can be functions of only $x$, and the outermost limit $x$ must be constant real numbers.
+
+We would like to rearrange the current inequalities described for the region $E$. We now note that $z^2 \leq y \leq 1-x$, $0 \leq z \leq \sqrt{1-x}$, and $0 \leq x \leq 1$ from finding the limits of the innermost limits to the outermost limits. Thus, the iterate integral is
+
+$$I = \int_0^1\int_0^{\sqrt{1-x}}\int_{z^2}^{1-x} g(x, y, z) \mathrm d y \mathrm d z \mathrm d x$$
+
+\section{March 30, 2016}
+\subsection{Polar, Cylindrical and Spherical Coordinates}
+
+Let $P$ be a point in the $xy$-plane, where $P=(x,y)$. The polar coordinates of $P$ are 
+\begin{itemize}
+	\item $r$: The distance from the origin to point $P$.
+	\item $\theta$: The angle made by $\overrightarrow{OP}$ with the positive half of the $x$-axis. 
+\end{itemize}
+
+It is often the case that polar and cartesian coordinates are displayed on the same set of coordinate axes as shown. It is clear that 
+
+$$x = r\cos(\theta)$$
+$$y = r \sin(\theta)$$
+$$x^2+y^2=r^2$$
+
+\subsection{Element of Area in Polar Coordinates}
+
+Recall that the area of a sector cut off from a circle of radius $a$ is given by $\frac{1}{2}a^2\alpha$ where $\alpha$ is the radians. The area between two sectors is thus
+
+\begin{align*}
+\Delta A &= \frac{1}{2}(r+\Delta r)^2\Delta \theta - \frac{1}{2} r^2\Delta \theta\\
+&= \frac{1}{2}\Delta \theta \left((r+\Delta r)^2 - r^2 \right) \\
+&= \frac{1}{2}\Delta \theta \left(2r\Delta r +(\Delta r)^2\right)\\
+&\approx r \Delta r \Delta \theta\\
+\mathrm d A &\approx r \mathrm d r \mathrm d \theta
+\end{align*}
+
+\subsection{Summary of Polar Coordinates}
+
+\begin{enumerate}
+	\item $x=r\cos\theta$
+	\item $y=r\sin\theta$
+	\item $x^2+y^2=r^2$
+	\item $\mathrm d A = r\mathrm d r \mathrm d \theta$
+\end{enumerate}
+
+\subsection{Double Integrals in Polar Coordinates}
+Given $$I = \iint\limits_R f(x,y) \mathrm d A$$we compute integrals using polar coordinates, we apply the following three steps:
+
+\begin{enumerate}
+	\item In the expression of $f(x,y)$, replace $x$ by $r\cos\theta$, replace $y$ by $r\sin\theta$, and if applicable, replace $x^2+y^2$ by $r^2$. We then obtain a new function $F(r, \theta)$. 
+	\item Replace $\mathrm d A$ by $r\mathrm d r \mathrm d \theta$.
+	\item Express the equations describing region $R$ in polar coordinates. Assume that the region is described by $g(\theta) \leq r \leq h(\theta)$ and that $\alpha \leq \theta \leq \beta$ as shown. 
+\end{enumerate}
+
+For polar coordinates, we often integrate with respect to $r$ first, followed by $\theta$. Therefore, the inner limits are $g(\theta) \leq r \leq h(\theta)$ and the outer limits are $\alpha \leq \theta \leq \beta$.
+
+\begin{remark}
+An important polar curve is the equation of a circle centered at the origin which has a radius of $a$. This is given by $x^2+y^2=a^2$. In polar coordinates, we obtain $r^2 = a^2$. Therefore
+
+$$r=a$$
+\end{remark}
+
+\begin{remark}
+We typically use polar coordinates when dealing with equations describing region $R$ which contains the special quantity $x^2+y^2$, which reduces to $r^2$. 
+\end{remark}
+
+\subsection{Cylindrical Coordinates}
+Cylindrical coordinates are the three-dimensional analogue of polar coordinates. In fact, the cylindrical coordinates of a point $P$ are the coordinates of $P$ on the rim of a cylinder of radius $r$. 
+
+\begin{itemize}
+	\item $r$: The distance from the origin to point $Q$.
+	\item $\theta$: The angle made by $\overrightarrow{OQ}$ with the positive half of the $x$-axis. 
+	\item $z$: The height of the point $P$.
+\end{itemize}
+
+We note that $Q$ is the orthogonal projection of $P$ onto the $xy$-plane. 
+
+
+\subsection{Summary of Cylindrical Coordinates}
+
+\begin{enumerate}
+	\item $x=r\cos\theta$
+	\item $y=r\sin\theta$
+	\item $z = z$
+	\item $x^2+y^2=r^2$
+	\item $\mathrm d V = \mathrm d A \mathrm d z = r \mathrm d r \mathrm d \theta \mathrm d z$
+\end{enumerate}
+
+\subsection{Computing a Triple Integral in Cylindrical Coordinates}
+
+Refer to the same process as outlined for polar coordinates. 
+
+\section{April 1, 2016}
+
+\subsection{Spherical Coordinates}
+
+The spherical coordinate system is closely related to geographical longitudes and latitudes. Let $P(x, y, z)$ be a point in three dimensions. The spherical coordinates of point P are:
+
+\begin{itemize}
+	\item $\rho$: The distance from the origin to point $P$.
+	\item $\phi$: The angle made by $\overrightarrow{OP}$ with the positive half of the $z$-axis. 
+	\item $\theta$: The angle made by $\overrightarrow{OQ}$ with the positive half of the $x$-axis. $Q$ is the orthogonal projection of $P$ onto the $xy$-plane.
+\end{itemize}
+
+From the polar coordinates $Q(x,y)$, we obtain $x=r\cos\theta$, $y = r \sin\theta$ and $x^2+y^2=r^2$. From $\Delta OPQ$, we get $z = \rho \cos\phi$, where $r = \rho \sin\phi$. Thus, $x= \rho\sin\phi\cos\theta$ and $y = \rho\sin\phi\sin\theta$.
+
+\subsection{Other Useful Relations}
+
+\begin{align*}
+	r^2+z^2 &= (\rho\sin\phi)^2+(\rho\cos\phi)^2\\
+	&= \rho^2\left(\sin^2\phi+\cos^2\phi\right)\\
+	&= \rho^2\\
+	x^2+y^2+z^2 &= \rho^2
+\end{align*}
+
+\begin{align*}
+x^2+y^2&=r^2\\
+&= (\rho\sin\phi)^2\\
+x^2+y^2 &= \rho^2\sin^2\phi
+\end{align*}
+
+\subsection{Ranges for $\rho, \phi, \theta$}
+
+We note the following ranges for permissible values of $\rho$, $\phi$ and $\theta$. 
+
+$$0 \leq \rho < \infty$$ $$0 \leq \phi \leq \pi$$ $$0 \leq \theta \leq 2\pi$$
+
+\subsection{Summary of Spherical Coordinates}
+\begin{enumerate}
+	\item	$x = r \cos (\theta)$
+	\item	$y = r \sin (\theta)$
+	\item	$z = \rho \cos (\phi)$
+	\item	$r = \rho \sin (\phi)$
+	\item $x^2 + y^2 + z^2 = \rho^2$
+	\item $x^2 + y^2 = \rho^2 \sin^2(\phi)$
+\end{enumerate}
+
+\subsection{Two Special Equations in Spherical Coordinates}
+
+\begin{enumerate}
+	\item $x^2 + y^2 + z^2 = a^2$ is a sphere with a centre at $(0,0,0)$ and a radius of $a$. In spherical coordinates, we know that $x^2+y^2+z^2 = \rho^2$, so $\rho^2 = a^2$. Therefore, the equation becomes $\rho = a$. 
+	\item $x^2 + y^2 + (z-k)^2 = k^2$ (or expanded to become $x^2 + y^2 + z^2 -2zk=0$) is an equation of a sphere with centre at $(0,0,k)$ and radius of $k$ which passes through the origin. We can convert this to spherical coordinates to get $\rho^2 -2k(\rho \cos(\phi))=0$. Therefore $$\rho = 2k \cos(\phi)$$
+\end{enumerate}
+
+\begin{example}
+Identify the surface $\rho =  2$. 
+\end{example}
+
+This is the sphere centered at the origin with a radius of 2, since it is of the form of the first of the two special equations. 
+
+
+\begin{example}
+Identify $\rho = 3 \cos(\phi)$.
+\end{example}
+
+This is a sphere centered at $(0,0,k) = \left(0,0,\frac{3}{2} \right)$ with a radius of $k=\frac{3}{2}$ which passes through the origin. 
+
+\subsection{Element of Volume in Spherical Coordinates}
+
+We note
+$$\frac{\mathrm d x \mathrm d y \mathrm d z}{\mathrm d \rho \mathrm d \phi \mathrm d \theta } = \frac{\partial (x, y, z)}{\partial (\rho, \phi, \theta)} = \rho^2\sin(\phi)$$
+
+By rearranging this relationship, we get $\mathrm d x \mathrm d y \mathrm d z = \rho^2\sin(\phi)\mathrm d \rho \mathrm d \phi \mathrm d \theta$. Therefore
+
+$$\mathrm d V = \rho^2 \sin(\phi) \mathrm d \rho \mathrm d \phi \mathrm d \theta$$
+
+\begin{remark}
+In spherical coordinates, we often compute a triple integral in the order described above $(\rho, \phi, \theta)$. 
+\end{remark}
+
+\begin{remark}
+If all four limits of a double integral are constant real numbers and the integrand is expressible as a product of two functions of a single variable each, then we may be able to split the integral into two integrals.
+\end{remark}
+
+\begin{example}
+Use double integrals to find the volume enclosed by the cone $z = 3\sqrt{x^2 + y^2}$ and the paraboloid $z = 22-4x^2-4y^2$.
+\end{example}
+
+We note that $$V = \iint \limits_{Base} (Height)  \mathrm d A$$ where the base is the region enclosed by the curve of intersection of two surfaces projected onto the xy-plane. We can sketch the graph to understand what it looks like. We obtain a cone with a vertex at $(0,0,0)$ with an axis of symmetry in the $z$-axis and a paraboloid with a vertex of $(0,0,22)$, an axis of symmetry in the $z$-axis and which opens downwards. We can now eliminate $z$ from the equations by equating the two equations.  
+
+However, the equation describing the base (the region enclosed by the curve of intersection of two surfaces projected onto the $xy$-plane) is described by the special equation $x^2+y^2$. Now, $z=3\sqrt{x^2+y^2}$ becomes $z= 3r$ and $z=22-4(x^2+y^2)$ becomes $z=22-4r^2$. Now, we equate $z$ to get $4r^2+3r-22=0$. We factor to find $(r-2)(4r+11)$, then solve for $r$ to get $r=2$ or $r=-\frac{11}{4}$. We reject the negative value, and get an equation centered at $(0,0)$ which has a radius of 2.
+
+The height is $z_{top}-z_{bottom}$, where we know that $z=3r$ and $z=22-4r^2$. But which one is on top? To determine, we simply pick any value of $r$ within the base. For instance, we may consider when $r=0$. We determine that $z= 22-4r^2$ is on top. Thus the volume is described by the equation
+
+$$\int \limits_{\theta = 0}^{\theta = 2 \pi}   \int \limits_{r = 0}^{r=2} (22-4r^2-3r) r \mathrm d r \mathrm d \theta$$
+
+Thus, by splitting the integral, we get
+
+\begin{align*}
+	V &= \int_0^{2 \pi} \mathrm d \theta \int_0^2 \left(22-4r^2-3r\right)r \mathrm d r \\
+	&= 2\pi\int_0^2 \left(22r-4r^3-3r^2\right)\mathrm d r\\
+	&= 2\pi \left.\left(11r^2-r^4-r^3\right)\right|_0^2\\
+	&= 2\pi (44-16-8)\\
+	&= 2\pi(20)\\
+	&= 40 \pi
+\end{align*}
+
+
+
+
+
+\section{April 4, 2016}
+\subsection{Examples Cont'd}
+
+\begin{example}
+Evaluate $$\iint \limits_R e^{\sqrt{x^2+y^2}}\mathrm d A$$ where R is the region described by $0 \leq y \leq \sqrt{1-x^2}$.
+\end{example}
+
+We have boundaries of $y=0$ since it is bounded by the x-axis and $y^2 = 1-x^2$. However, we note that this question indicates only the top half of the circle $x^2 + y^2 = 1$. After sketching the region, we notice that we can use polar coordinates because the equation describing R contains the special quantity $x^2 + y^2$, which is reduced to $r^2$. We now have $0 \leq r \leq 1$ and $0 \leq \theta \leq \pi$. 
+
+We note that in polar coordinates, $x= r\cos\theta$, $y= r\sin\theta$, $x^2 + y^2 = r^2$ and $\mathrm d A = r \mathrm d r \mathrm d \theta$. Thus, the equation becomes the following, after integrating by parts
+
+\begin{align*}
+I &= \int_0^{\pi}\int_0^1e^rr\mathrm d r \mathrm d \theta\\
+&= \int_0^{\pi} \mathrm d \theta \int_0^1 re^r \mathrm d r\\
+&= \pi \int_0^1re^r\mathrm d r\\
+&= \pi \left(\left.re^r\right|_0^1 - \int_0^1e^r\mathrm d r\right)\\
+&= \pi\left(e-\left.e^r\right|_0^1\right)\\
+&= \pi(e-e+1)\\
+&=\pi
+\end{align*}
+
+\begin{example}
+Evaluate $$\iiint\limits_R \left(1+x^2+y^2 \right)\mathrm d V$$ where $R$ is the region enclosed by the paraboloids $z=x^2+y^2$ and $z=2-x^2-y^2$. 
+\end{example}
+
+First, we observe that the equation describing the region $R$ contains the special quantity $x^2+y^2$. We will thus use cylindrical coordinates since simplicity is desired for this triple integral. We note that $\mathrm d V = \mathrm d z \mathrm d A$, where $\mathrm d A = r \mathrm d r \mathrm d \theta$. 
+
+\begin{align*}
+	I &= \iiint \limits_R \left(1 + x^2 + y^2 \right) \mathrm d V\\
+	&= \iint \limits_{Base} \left(1+r^2\right)  \left\{ \int \limits_{z_{bottom}}^{z_{top}} \mathrm d z \right\} \mathrm d A\\
+\end{align*}
+
+First, we convert the paraboloids to their respective cylindrical forms, $z=r^2$ and $z=2-r^2$. Equating them gives $2r^2=2$, which reduces to $r=1$. However, this is the equation of a circle centered at $(0,0)$ with a radius of 1. Our bounds becomes $0 \leq r \leq 1$ and $0 \leq \theta \leq 2\pi$. 
+
+Now, we determine which surface is on top. We simply test for $r=0$ and determine that that $z=2-r^2$ is on top while $z=r^2$ is on the bottom. Thus the integral becomes
+
+\begin{align*}
+I &= \int_0^{2\pi}\int_0^1 \left(1+r^2\right) \left\{\int\limits_{z=r^2}^{z=2-r^2} \mathrm d z \right\}\mathrm d A\\
+&= \int_0^{2\pi}\int_0^1 \left(1+r^2\right) \left(2-2r^2\right)r \mathrm d r \mathrm d \theta\\
+&= 2\int_0^{2\pi}\int_0^1 \left(1+r^2\right) \left(1-r^2\right)r \mathrm d r \mathrm d \theta\\
+&= 2\int_0^{2\pi}\int_0^1 \left(1-r^4\right)r \mathrm d r \mathrm d \theta\\
+&= 2\int_0^{2\pi}\mathrm d \theta\int_0^1 \left(1-r^4\right)r \mathrm d r \\
+&= 4\pi\int_0^1 \left(r-r^5\right) \mathrm d r \\
+&= 4\pi\left.\left(\frac{r^2}{2}-\frac{r^6}{6}\right)\right|_0^1\\
+&= \frac{4\pi}{3}
+\end{align*}
+
+
+\begin{example}
+Evaluate $$\iiint \limits_E z \mathrm d V$$ where $E$ is the region enclosed by the sphere $x^2+y^2+z^2-2z=0$ and the cone $z = \sqrt{\frac{x^2+y^2}{3}}$
+\end{example}
+
+We first observe that the equations describing region $E$ both involve special quantities $x^2 + y^2 + z^2$ and $x^2 + y^2$. Therefore, we may use either spherical or cylindrical coordinates. We shall arbitrarily choose to use spherical coordinates. Thus, we recall that $x=r\cos(\theta)$, $y = r \sin(\theta)$, $z = \rho \cos(\phi)$, $x^2 + y^2 + z^2 = \rho ^2$, $\mathrm d V = \rho^2 \sin^2(\phi)\mathrm d \rho \mathrm d \phi \mathrm d \theta$ where $r = \rho \sin(\phi)$.
+
+\begin{align*}
+I &= \iiint\limits_Ez \mathrm d V\\
+	&= \iiint\limits_E\rho\cos(\phi)\rho^2\sin(\phi)\mathrm d \rho \mathrm d \phi \mathrm d \theta\\
+	&= \iiint\limits_E\rho^3\cos(\phi)\sin(\phi)\mathrm d \rho \mathrm d \phi \mathrm d \theta\\
+\end{align*}
+
+*We may note that the equation $x^2+y^2+z^2-2z=0$ describes a sphere centered at $(0,0,1)$ with a radius of 1, as 
+
+\begin{align*}
+x^2+y^2+z^2-2z&=0\\
+x^2+y^2+\left(z^2-2z+1\right)-1&=0\\
+x^2+y^2+(z-1)^2&= 1
+\end{align*}
+
+Now, we shall express the boundary $E$ in terms of spherical coordinates. We use appropriate substitutions to find that 
+
+\begin{align*}
+x^2+y^2+z^2-2z&=0\\
+\rho^2-2\rho\cos(\phi)&=0\\
+\rho &= 2 \cos(\phi)
+\end{align*}
+
+Similarly
+
+\begin{align*}
+z &= \sqrt{\frac{x^2+y^2}{3}}\\
+&= \sqrt{\frac{r^2}{3}}\\
+&= \frac{r}{\sqrt{3}}\\
+&= \frac{\rho\sin(\phi)}{3}\\
+\rho\cos(\phi)&= \frac{\rho\sin(\phi)}{3}\\
+\sqrt{3}&= \tan(\phi)\\
+\phi &= \frac{\pi}{3}
+\end{align*}
+
+We first sketch to understand visually. We note the new boundaries $0 \leq \rho \leq 2 \cos\phi$, $0 \leq \theta \leq 2\pi$ and $0 \leq \phi \leq \frac{\pi}{3}$. The equation becomes 
+\begin{align*}
+	I &= \int \limits_{\theta = 0}^{\theta = 2 \pi} \int \limits_{\phi = 0}^{\phi = \frac{\pi}{3}} \int \limits_{\rho = 0}^{\rho = 2 \cos(\phi)} \rho^3 \cos(\phi)\sin(\phi) \mathrm d \rho \mathrm d \phi \mathrm d \theta \\
+	&= \int_0^{2\pi} \mathrm d \theta \int_0^{\frac{\pi}{3}}\cos(\phi)\sin(\phi)  \left\{\int_0^{2\cos(\phi)}\rho^3\mathrm d \rho\right\}\mathrm d \phi\\
+	&= 2\pi \int_0^{\frac{\pi}{3}}\cos(\phi)\sin(\phi) \left(\left.\frac{\rho^4}{4}\right|_0^{2\cos(\phi)}\right)\mathrm d \phi\\
+	&= \frac{1}{2}\pi \int_0^{\frac{\pi}{3}}\cos(\phi)\sin(\phi) (2\cos(\phi))^4\mathrm d \phi\\
+	&= 8\pi \int_0^{\frac{\pi}{3}}\cos^5(\phi)\sin(\phi) \mathrm d \phi\\
+\end{align*}
+
+We use the substitution $t= \cos(\phi)$, and $\mathrm d t = -\sin(\phi)\mathrm d \phi$ to get
+
+\begin{align*}
+	I &= -8 \pi \int \limits_{t=1}^{t = \frac{1}{2}} t^5 \mathrm d t\\
+	&= -8 \pi \left.\left(\frac{t^6}{6}\right)\right|_1^{\frac{1}{2}}\\
+	&= -\frac{4}{3} \pi\left(\left(\frac{1}{2}\right)^6-1\right)\\
+	&= -\frac{4}{3} \pi\left(\frac{1}{64}-1\right)\\
+	&= -\frac{4}{3} \pi\left(-\frac{63}{64}\right)\\
+	&= \frac{21\pi}{16}
+\end{align*}
+
+\section{April 6, 2016}
+\subsection{Applications of Double and Triple Integrals}
+
+Let $R$ be the planar region which is occupied by a thin plate (or \textbf{lamina}). Assume that the lamina is not uniform and that the area of density at a point $(x,y)$ is given by the function 
+
+$$\delta = \delta(x,y)$$
+
+\begin{enumerate}
+	\item \textbf{Mass}, $m$: The mass of an element of area $\mathrm d A$ is denoted and given by the area of density multiplied by the area$$\mathrm d m = \delta(x,y) \mathrm d A$$ Therefore, mass is given as
+	$$m = \iint \limits_R \mathrm d m$$
+	\item \textbf{Moments}, $M$: The moment  is mass multiplied by distance. The moment above the y-axis is denoted by $M_{y-axis}$ or $M_{x=0}$. The moment of an element of mass $\mathrm d m$ is thus given by $$\mathrm d M_{x=0} = x \mathrm d m$$ Therefore
+	
+	$$M_{x=0} \iint \limits_R x \mathrm d m$$
+	Similarly
+	
+	$$M_{y=0} \iint \limits_R y \mathrm d m$$
+	\item \textbf{Centre of Mass}, $(\bar{x},\bar{y})$: The centre of mass is an imaginary point in which the entire mass $m$ is concentrated. Therefore, by definition of moments
+	
+	$$\bar{x} = \frac{M_{x=0}}{m}$$
+	and 
+	$$\bar{y} = \frac{M_{y=0}}{m}$$
+	\item \textbf{Centroid}: If the lamina is uniform (that is, the density function is a constant with $\delta(x,y)=1$), then the centre of mass is referred to as the centroid. 
+\end{enumerate}
+
+For a solid in space which occupies the region $E$ in $\mathbb R^3$, we have that for triple integrals $$\mathrm d m = \delta(x, y, z) \mathrm d V$$
+
+\begin{enumerate}
+	\item \textbf{Mass}, m:
+	
+	$$m = \iiint\limits_E\mathrm d m$$
+	\item \textbf{Moment}, M:
+	
+	$$M_{x=0} = \iiint \limits_E x \mathrm d m$$ 
+	$$M_{y=0} = \iiint \limits_E y \mathrm d m$$ 
+	$$M_{z=0} = \iiint \limits_E z \mathrm d m$$ 
+	
+	\item \textbf{Centre of Mass}, $(\bar{x}, \bar{y}, \bar{z})$: 
+	
+	$$\bar{x} = \frac{M_{x=0}}{m}$$
+	$$\bar{y} = \frac{M_{y=0}}{m}$$
+	$$\bar{z} = \frac{M_{z=0}}{m}$$
+	\item \textbf{Centroid}: Once again, if the solid is uniform (that is, the density $\delta =\delta (x, y, z)$ is constant, say $\delta (x, y, z) = 1$), then the centre of mass is referred to as the centroid instead.
+\end{enumerate}
+
+
+
+
+\begin{remark}
+If $\delta(x, y) = 1$, and since $\mathrm d m = \delta(x,y)\mathrm d A$, then we get $\mathrm d m = \mathrm d A$. Thus, we get that $m=A$ after integrating both sides. Mass and Area are numerically equivalent. 
+\end{remark}
+
+\begin{remark}
+If $\delta(x, y, z) = 1$, then we similarly get $\mathrm d m = \mathrm d V$. Thus, we get $m=V$, where Mass and Volume are numerically equal.
+\end{remark}
+
+\begin{example}
+Find the moment about the $yz$-plane of the solid which occupies the region $E$ described by $0 \leq x \leq 1$, $0 \leq y \leq 1-x^2$ and $0 \leq z \leq 2x$ if the density function is $\delta(x, y, z) = 12z$.
+
+\end{example}
+
+We recall that $\mathrm d m = \delta(x, y, z) \mathrm d V$. Here, we know that $\delta(x, y, z) = 12z$. We want to compute the moment about the yz-plane (which has the equation $x=0$). We recall that $$M_{x=0} = \iiint \limits_E x \mathrm d m $$ Thus, we set up the integral so that $x$ is integrated last
+
+\begin{align*}
+	M &= \iiint \limits_E x \left(12z \mathrm d V \right)\\
+	&= 	\int\limits_{x=0}^{x=1} \int\limits_{z=0}^{z=2x}\int\limits_{y=0}^{y=1-x^2} 12xz\mathrm d y \mathrm d z \mathrm d x\\
+	&= \int_0^1\int_0^{2x} 12xz \left(\left.y\right|_0^{1-x^2}\right)\mathrm d z \mathrm d x\\
+	&= \int_0^1\int_0^{2x} 12xz \left(1-x^2\right)\mathrm d z \mathrm d x\\
+	&= \int_0^1 12x\left(1-x^2\right) \left\{\int_0^{2x}z\mathrm d z\right\}\mathrm d x\\
+	&= \int_0^1 12x\left(1-x^2\right) \left\{\left.\frac{z^2}{2}\right|_0^{2x}\right\}\mathrm d x\\
+	&= \int_0^1 12x\left(1-x^2\right)\left(2x^2\right)\mathrm d x\\	
+	&= \int_0^1 24x^3\left(1-x^2\right)\mathrm d x\\
+	&= \int_0^1 24x^3-24x^5\mathrm d x\\
+	&= \left.6x^4-4x^6\right|_0^1\\
+	&= 2
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{April 8, 2016}
+
+\subsection{Application Examples}
+
+\begin{example}
+Find the moment about the $x$-axis of the lamina which occupies the region described by $0\leq y \leq \sqrt{2x}$ and $0 \leq x \leq 1$ if the density $\delta (x,y) = e^x$.
+\end{example}
+
+For application problems, we start by finding the expression of $\mathrm d m$. Recall that $\mathrm d m = \delta (x,y) \mathrm d A$. Here, $\delta (x,y) = e^x$, so $\mathrm d m = e^x \mathrm d A$. We want to find the moment about the x-axis ($M_{x-axis}$ or $M_{y=0}$). Recall that $$M_{y=0} = \iint \limits_R y \mathrm d m$$ However, the region is described already by range of $x$ and $y$, so there is no need to sketch. Clearly, the region is $y-simple$ since $y$ has variable limits. Therefore
+
+\begin{align*}
+M_{y=0} &= \int_0^1 e^x \left\{ \int_0^{\sqrt{2x}} y \mathrm d y  \right\} \mathrm d x\\
+	&= \int_0^1e^x \left(\left.\frac{y^2}{2}\right|_0^{\sqrt{2x}}\right)\mathrm d x\\
+	&= \int \limits_0^1 xe^x \mathrm d x \\
+\end{align*}
+
+We will solve this by using integration by parts, as shown
+
+\begin{align*}
+&= \left.xe^x\right|_0^1-\int_0^1e^x\mathrm d x\\
+&= e-\left.e^x\right|_0^1\\
+&= e - (e-1)\\
+&= 1
+\end{align*}
+
+\begin{example}
+Evaluate $$\iint \limits_R \left(7x^2 y +3xy^2 \right) \mathrm d A$$ where $R$ is the region occupied by a lamina with a mass of $m=3$ units, a centre of mass at the point $(1,4)$, and a density of $\delta (x,y) =xy$. 
+\end{example}
+
+
+First, we note that $\mathrm d m = \delta (x,y) \mathrm d A$, so in this case, we have $\mathrm d m = xy \mathrm d A$. We will attempt to express the integral $I$ in terms of $\mathrm d m$, then interpret the result. Indeed, we get that 
+
+\begin{align*}
+	I &= \iint \limits_R \left( \frac{7x^2y+3xy^2}{xy} xy\right) \mathrm d A\\
+	&= \iint \limits_R \left(7x+3y \right)(xy) \mathrm d A \\
+	&= \iint \limits_R (7x+3y) \mathrm d m\\
+	&= 7 \iint \limits_R x \mathrm d m + 3 \iint \limits_R y \mathrm d m \\
+\end{align*}
+
+But these are moments, so we can re-write this as 
+
+\begin{align*}
+	I &= 7 M_{x=0} + 3 M_{y=0} \\
+\end{align*}
+
+But we know that $(\bar{x}, \bar{y}) = (1, 4)$, and that $m=3$, so we substitute the values into $\bar{x} = \frac{M_{x=0}}{m}$ and $\bar{y} = \frac{M_{y=0}}{m}$ to get that $M_{x=0} = 3$ and $M_{y=0} = 12$, so substituting these values into $I$, we get $57$.
+
+
+\begin{example}
+Find the $y$ coordinate of the centroid of a thin plate which occupies the region enclosed by $x=0$, $y=3$ and $y^2 = x$.
+\end{example}
+
+We recall that for a centroid, we have $\delta(x,y) = 1$, so $\mathrm d m = \mathrm d A$. We want to compute $\bar{y}$, and we recall that $\bar{y} = \frac{M_{y=0}}{m}$. Thus
+
+\begin{align*}
+	m &= \iint \limits_R \mathrm d A\\
+	&= \int_0^3 \left\{ \int_0^{y^2} \mathrm d x \right\} \mathrm d y \\
+	&= \int_0^3 y^2 \mathrm d y \\
+	&= \left.\frac{y^3}{3}\right|_0^3\\
+	&= 9
+\end{align*}
+
+\begin{align*}
+	M_{y=0} &= \iint \limits_R y\mathrm d m\\
+	&= \iint \limits_R y\mathrm d A\\
+	&= \int_0^3y\left\{\int_0^{y^2}\mathrm d x\right\}\mathrm d y\\
+	&= \int_0^3y^3\mathrm d y\\
+	&= \left.\frac{y^4}{4}\right|_0^3\\
+	&= \frac{3^4}{4}\\
+	&= \frac{81}{4}
+\end{align*}
+
+By using the equation of $\bar{y}$ and the fact that $M_{y=0} = \frac{81}{4}$ and $m=9$, we get that $\bar{y} = \frac{9}{4}$. We have to make sure that the centroid lies within the lamina. 
+
+\section{April 11, 2016}
+
+\subsection{Examples Cont'd}
+
+\begin{example}
+Find the mass of the solid which occupies the region enclosed by the sphere $\rho = \cos(\phi)$ if the density function is given by $\delta(\rho, \phi, \theta) = 35 \cos(\frac{\theta}{6})\cos(\phi)\rho^4$
+\end{example}
+
+First, the surface $\rho = \cos(\phi)$ is an equation of a sphere with a centre at $\left(0, \frac{1}{2}\right)$, with a radius of $\frac{1}{2}$ which passes through the origin. We note that $0 \leq \rho \leq \cos(\phi)$ and that $0 \leq \theta \leq 2 \pi$. 
+
+Recall that $$m = \iiint \limits_E \mathrm d m$$ We know that $\mathrm d m = \delta(\rho, \phi, \theta) \mathrm d V$, but $\delta(\rho, \phi, \theta) = 35 \cos(\frac{\theta}{6})\cos(\phi)\rho^4$. Thus, we get
+
+\begin{align*}
+	\mathrm d m &= 35\cos\left(\frac{\theta}{6}\right)\cos(\phi)\rho^4* \rho^2 \sin(\phi) \mathrm d \rho \mathrm d \phi \mathrm d \theta\\
+	&= 35 \cos\left(\frac{\theta}{6}\right)\cos(\phi)\sin(\phi)\rho^6\mathrm d \rho \mathrm d \phi \mathrm d \theta \\
+\end{align*}
+
+Furthermore, we know the bounds to be $0 \leq \rho \leq \cos(\phi)$, $0 \leq \theta \leq 2 \pi$ and $0 \leq \phi \leq \frac{\pi}{2}$. Therefore
+
+\begin{align*}
+	m &= \int_0^{2\pi}\int_0^{\frac{\pi}{2}}\int_0^{\cos(\phi)} 35 \cos\left(\frac{\theta}{6}\right)\cos(\phi)\sin(\phi)\rho^6\mathrm d \rho \mathrm d \phi \mathrm d \theta\\
+	&= \int_0^{2\pi}35 \cos\left(\frac{\theta}{6}\right)d \theta\int_0^{\frac{\pi}{2}}\cos(\phi)\sin(\phi) \int_0^{\cos(\phi)} \rho^6\mathrm d \rho \mathrm d \phi\\
+	&= \int_0^{2\pi}35 \cos\left(\frac{\theta}{6}\right)d \theta\int_0^{\frac{\pi}{2}}\cos(\phi)\sin(\phi) \left(\left.\frac{\rho^7}{7}\right|_0^{\cos(\phi)}\right)\mathrm d \phi\\
+	&= 5\int_0^{2\pi}\cos\left(\frac{\theta}{6}\right)d \theta\int_0^{\frac{\pi}{2}}\cos^8(\phi)\sin(\phi)\mathrm d \phi \\
+	&= 5\left(\left.6\sin\left(\frac{\theta}{6}\right)\right|_0^{2\pi}\right)\int_0^{\frac{\pi}{2}}\cos^8(\phi)\sin(\phi)\mathrm d \phi \\
+	&= 30\left(\sin\left(\frac{\pi}{3}\right)-\sin(0)\right)\int_0^{\frac{\pi}{2}}\cos^8(\phi)\sin(\phi)\mathrm d \phi \\
+	&= 15\sqrt{3}\int_0^{\frac{\pi}{2}}\cos^8(\phi)\sin(\phi)\mathrm d \phi \\
+\end{align*}
+
+Now, we use the substitution $t=\cos(\phi)$ and $\mathrm d t = - \sin(\phi)\mathrm d \phi$ to get
+
+\begin{align*}
+	m &= 15\sqrt{3}\int_1^0-t^8\mathrm d t\\
+	&= -15\sqrt{3}\left(\left.\frac{t^9}{9}\right|_1^0\right)\\
+	&= -15\sqrt{3}\left(-\frac{1}{9}\right)\\
+	&= \frac{5\sqrt{3}}{3}
+\end{align*}
+
+\subsection{Critical Points of Functions of Two Independent Variables}
+
+Let $f(x,y)$ be a function of the two independent variables $x$ and $y$. The \textbf{critical points} of $f$ occur where
+
+$$\frac{\partial f}{\partial x} = 0$$ 
+
+and
+
+$$\frac{\partial f}{\partial y} = 0$$
+
+That is, we need to solve the generally non-linear system of those two equations simultaneously. 
+
+\begin{example}
+Given $f(x,y) = x^3-3x^2y+6y^2+24y+1$, find all the critical points of $f$. 
+\end{example}
+
+We recall that critical points occur where $\frac{\partial f}{\partial x} = 0$ and $\frac{\partial f}{\partial y} = 0$. We can evaluate to get $\frac{\partial f}{\partial x} = 3x^2-6xy$ and $\frac{\partial f}{\partial y} = -3x^2+12y+24$. Thus, we solve the following system of equations
+
+$$ 3x^2-6xy=0$$
+$$-3x^2+12y+24=0$$
+
+We often begin by solving the easier of the two equations. In our case, we consider the first equation $3x^2-6xy=0$. We can factor $3x$ to get $3x(x-2y)=0$. This means that either $3x=0$ or $x-2y=0$. We now have two cases to consider. 
+
+Case 1: $x=0$. The second equation then becomes $12y+24=0$. Solving for $y$, we have $y=-2$. Therefore, the first critical point is $(0,-2)$.
+
+Case 2: $x=2y$. The second equation reduces to $-3\left(2y\right)^2+12y+24 =0$. This becomes $-12y^2+12y+24=0$. Dividing by $-12$, we get $y^2-y-2=0$, which is equivalent to $(y-2)(y+1)$. Thus, we have $y=2$ or $y=-1$. After finding the corresponding values of $x$ for each $y$, we get the critical points of $(4,2)$ and $(-2, -1)$.
+
+\section{April 13, 2016}
+\subsection{Classifying Critical Points}
+Let $f(x,y)$ be a function of the two independent variables $x$ and $y$. The second order partial derivatives of $f$ are $f_{xx}(x,y), f_{yy}(x,y)$ and $ f_{xy}(x,y)=f_{yx}(x,y)$. 
+We will denote these partial derivatives with $A,B,C$ respectively so that $A=f_{xx}, B=f_{xy}$ and $C=f_{yy}$.
+
+We define the function $D(x,y) = B^2-AC$. 
+
+\subsection{Second Derivative Test}
+
+Let $(x_0, y_0)$ be a critical point for the function $f(x,y)$. Then
+
+\begin{itemize}
+	\item If $D(x_0, y_0)<0$ and $A < 0$ (or $C<0$), then $f$ has a local maximum at $(x_0, y_0)$. 
+	\item if $D(x_0,y_0)<0$ and $A>0$ (or $C>0$), then $f$ has a local minimum at $(x_0, y_0)$. 
+	\item if $D(x_0, y_0) > 0$, then $f$ has no local extrema at $(x_0, y_0)$. Such a point is referred to as a \textbf{saddle point}.
+	\item if $D(x_0, y_0)=0$, then the test fails. 
+\end{itemize}
+	
+	\begin{example}
+	Find and classify all critical points for the function $f(x,y) = x^3-3x+y^3-12y+5$. 
+	\end{example}
+
+We will now find all first and second order partials. 
+We note that $\frac{\partial f}{\partial x} = 3x^2-3$ and that $\frac{\partial f}{\partial y} =3y^2 -12$. We now note that $A = 6x$, $B=0$ and that $C=6y$. Therefore, $D = B^2-AC= -36xy$. 
+
+The critical points occur when $f_x=0$ and $f_y=0$, which occur when $3x^2-3=0$ and $3y^2-12=0$. Thus, the critical points are when $x= \pm 1$ and $y = \pm 2$. We have four critical points $(1, 2), (-1, 2), (1, -2)$ and  $(-1, -2)$. 
+
+We now construct a table with $A, B, C, D$, and use the rules described for the second derivative test to determine whether the points are local maximums, local minimums, or saddle points. Now, we get $f(1, 2) = -13$ and $f(-1, -2) = 23 $. Therefore, $f$ has a local minimum of value $-13$ which occurs at the point $(1, 2)$ and a local maximum of value $23$ at point $(-1, -2)$. Thus, $(1, -2)$ and $(-1, 2)$ are saddle points.
+
+
+\begin{example}
+Given $f(x,y) = 2x^3-6xy+3y^2$, with critical points at $(0,0)$ and $(1,1)$, determine whether $f$ has local maximums, local minimums, or saddle points.
+\end{example}
+
+First, we find all the first and second order partials. We note that $f_x=6x^2-6y$, $f_y = -6x+6y$, $A = f_{xx} = 12x$, $B = f_{xy} = -6$ and $C = f_{yy} = 6$. Therefore, $D= 36-72x$.
+
+Since we are already given critical points, we simply construct the table and find that $(0,0)$ has $D(x_0, y_0)>0$, so it is a saddle point. $(1,1)$ has $D(x_0, y_0)<0$ and $A>0$, so it is a local minimum with value $-1$.
+
+\subsection{Extreme Values of a Function of Two Independent Variables Over a Closed Region}
+
+Given a function $f(x,y)$ and a closed region $D$ in the $xy$-plane, to find extreme values of $f$ over the region $D$, we proceed to find all the critical points of $f$ in the interior of $D$. We then find all the critical points of $f$ on the boundary of region $D$. Now, we compute the values of $f(x,y)$ at each of the critical points found in the previous steps. The largest value of $f$ is the maximum, and the smallest value of $f$ is the minimum. 
+
+\begin{example}
+Find the extreme values of the function $f(x,y) = x^3 -3x+y^2$ over the region $D$ enclosed by the circle $(x-1)^2+y^2 = 1$. 
+\end{example}
+
+First, we sketch the circle centered at $(1,0)$ and with a radius of $1$. We find that the domain is given by $0 \leq x \leq 2$. 
+
+We will find the critical points in the interior of region $D$. Note that $f_x=3x^2-3$ and $f_y = 2y$. Critical points occur when $f_x=0$ and $f_y=0$. Solving these equations, we get $x= \pm 1$ and $y=0$. Therefore, we have two critical points $(1,0)$ and $(-1,0)$. However, only critical points in the interior of $D$ are accepted. Thus, we reject $(-1, 0)$. At $(x,y) = (1,0)$, we have $f(1,0) = -2$. 
+
+We now find the critical points on the boundary ($(x-1)^2+y^2 = 1$). We will express $f$ as a function of one variable. That is, we need to remove $x$ or $y$. Indeed, we can rearrange the boundary equation to get $y^2 = 1-(x-1)^2$. Substituting this into the equation of $f$, we obtain a function of a single variable $g(x) = x^3-3x+\left(2x-x^2\right) = x^3-x^2-x$, where $0 \leq x \leq 2$. Finding the critical points of this, we find that the critical point occurs when $x=1$. Endpoints occur when $x=0$ and $x=2$. Evaluating $g(x)$ at these values, we find that $g(1) = -1$, $g(0) = 0$ and $g(2) = 2$. Therefore, the extreme value is a maximum of $2$ at $(2,0)$, and a minimum of $-2$ at $(1, 0)$. 
+
+
+
+
+
+
+
+\section{Paragraph}
+In \LaTeX, paragraphs are caused
+when two line breaks are used.
+Single line breaks are ignored.
+Hence this entire block is one paragraph.
+
+Now this is a new paragraph. If you want to
+start a new line without a new paragraph, use
+two backslashes like this:
+\\
+Now the next words will be on a new line.
+\textbf{As a general rule, use this as infrequently as possible.}
+
+You can \textbf{bold} or \textit{italicize} text.
+Try to not do so repeatedly for mechanical tasks by, e.g. using theorem environments (see Section \ref{sec:theorem}).
+
+
+\section{Math}
+Inline math is created with dollar signs,
+like $e^{i \pi} = -1$ or $\half \cdot 2 = 1$.
+
+Display math is created as follows:
+\[ \sum_{k=1}^n k^3 = \left( \sum_{k=1}^n k \right)^2. \]
+This puts the math on a new line. Remember to properly add punctuation to the end of your sentences -- display math is considered part of the sentence too!
+
+Note that the use of \verb \left(  causes the parentheses to be the correct size. Without them, get something ugly like
+\[ \sum_{k=1}^n k^3 = ( \sum_{k=1}^n k )^2. \]
+
+\subsection{Using alignment}
+Try this:
+\begin{align*}
+	\prod_{k=1}^4 \left( i-x_k \right)\left( i+x_k \right) &= P(i) \cdot P(-i) \\
+	&= \left( 1-b+d+i(c-a) \right)\left( 1-b+d-i(c-a) \right) \\
+	&= (a-c)^2 + \left( b-d-1 \right)^2. 
+\end{align*}
+
+\section{Shortcuts}
+In the beginning of the document we wrote
+\begin{verbatim}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\cbrt}[1]{\sqrt[3]{#1}}
+\end{verbatim}
+Now we can use these shortcuts.
+\[ \half + \half = 1 \text{ and } \cbrt{8} = 2. \]
+
+\section{Theorems and Proofs}
+\label{sec:theorem}
+% ^ Now we can refer to this
+Let us use the theorem environments we had in the beginning.
+\begin{definition}
+	Let $\mathbb R$ denote the set of real numbers.
+\end{definition}
+Notice how this makes the source code READABLE.
+
+\begin{theorem}
+	[Vasc's Inequality]
+	\label{thm:vasc}
+	For any $a$, $b$, $c$ we have the inequality
+	\[ \left( a^2+b^2+c^2 \right)^2 \ge 3\left( a^3b+b^3c+c^3a \right). \]
+\end{theorem}
+
+For the proof of Theorem \ref{thm:vasc}, we need the following lemma.
+
+\begin{lemma}
+	We have $\left( x+y+z \right)^2 \ge 3(xy+yz+zx)$ for any $x,y,z \in \mathbb R$.
+\end{lemma}
+\begin{proof}
+	This can be rewritten as
+	\[ \half\left( (x-y)^2+(y-z)^2+(z-x)^2 \right) \ge 0 \]
+	which is obvious.
+\end{proof}
+
+\begin{proof}
+	[Proof of Theorem \ref{thm:vasc}]
+	In the lemma, put $x=a^2-ab+bc$, $y=b^2-bc+ca$, $z=c^2-ca+ab$.
+\end{proof}
+
+\begin{remark}
+	In \autoref{thm:vasc}, equality holds if $a : b : c = \cos^2 \frac{2\pi}{7} : \cos^2 \frac{4\pi}{7} : \cos^2 \frac{6\pi}{7}$.
+	This unusual equality case makes the theorem difficult to prove.
+\end{remark}
+
+
+\section{Referencing}
+The above examples are the simplest cases.
+You can get much fancier: check out
+\href{http://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing}{the Wikibooks}.
+
+\section{Numbered and Bulleted Lists}
+Here is a numbered list.
+\begin{enumerate}
+	\item The environment name is ``enumerate''.
+	\item You can nest enumerates.
+		\begin{enumerate}
+			\item Subitem
+			\item Another subitem
+		\end{enumerate}
+	\item[$2 \half$.] You can also customize any particular label.
+	\item But the labels continue onwards afterwards.
+\end{enumerate}
+
+\bigskip
+
+You can also create a bulleted list.
+\begin{itemize}
+	\item The syntax is the same as ``enumerate''.
+	\item However, we use ``itemize'' instead.
+\end{itemize}
+
+
+\end{document}
